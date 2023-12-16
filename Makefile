@@ -6,7 +6,7 @@
 #    By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2023/12/16 12:43:23 by arnaud           ###   ########.fr        #
+#    Updated: 2023/12/16 12:55:29 by arnaud           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,9 +74,9 @@ FT_PRINTF_SRCS = 	ft_printf.c \
 		srcs/ft_strlcpy.c \
 		srcs/ft_puthex_fd.c
 
-SRCS =  $(addprefix src/libft/, $(LIBFT_SRCS)) \
-		$(addprefix src/libft/, $(LIBFT_BONUS)) \
-		$(addprefix src/ft_printf/, $(FT_PRINTF_SRCS))
+SRCS =  $(addprefix src/libft/libft/, $(LIBFT_SRCS)) \
+		$(addprefix src/libft/libft/, $(LIBFT_BONUS)) \
+		$(addprefix src/libft/ft_printf/, $(FT_PRINTF_SRCS))
 
 OBJS = $(SRCS:.c=.o)
 
