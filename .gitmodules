@@ -1,3 +1,6 @@
 [submodule "src/ft_printf"]
 	path = src/ft_printf
 	url = git@github.com:arnaudderison/ft_printf.git
+[submodule "srcs/libft/ft_printf"]
+	path = srcs/libft/ft_printf
+	url = git@github.com:arnaudderison/ft_printf.git
