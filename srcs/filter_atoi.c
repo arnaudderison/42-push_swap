@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   filter_atoi.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/15 09:08:38 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/16 22:05:43 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/16 21:21:19 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/16 21:43:27 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(char c)
+static int	ft_isnotnb(char c)
 {
-	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
-		|| c == '\r');
+	return (c < '0' || c > '9');
 }
 
-int	ft_atoi(const char *str)
+int	filter_atoi(const char *str)
 {
 	int	result;
 	int	sign;
 
 	result = 0;
 	sign = 1;
-	while (ft_isspace(*str))
+	if (!str)
+		return ;
+	while (ft_isnotnb(*str))
 		str++;
 	if (*str == '-' || *str == '+')
 	{

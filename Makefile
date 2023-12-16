@@ -6,7 +6,7 @@
 #    By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2023/12/16 13:29:52 by arnaud           ###   ########.fr        #
+#    Updated: 2023/12/16 21:25:20 by arnaud           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,15 +70,16 @@ LIBFT_BONUS = ft_lstnew_bonus.c \
 
 FT_PRINTF_SRCS = 	ft_printf.c \
 		srcs/ft_pointer.c \
-		srcs/ft_putchar_fd.c \
-		srcs/ft_putstr_fd.c \
-		srcs/ft_putnbr_fd.c \
-		srcs/ft_strlen.c \
-		srcs/ft_u_putnbr_fd.c \
-		srcs/ft_strlcpy.c \
-		srcs/ft_puthex_fd.c
+		srcs/ft_putchar_fd_printf.c \
+		srcs/ft_putstr_fd_printf.c \
+		srcs/ft_putnbr_fd_printf.c \
+		srcs/ft_strlen_printf.c \
+		srcs/ft_u_putnbr_fd_printf.c \
+		srcs/ft_strlcpy_printf.c \
+		srcs/ft_puthex_fd_printf.c
 
-PUSH_SWAP_SRCS = push_swap.c
+PUSH_SWAP_SRCS = push_swap.c \
+				srcs/filter_atoi.c
 
 SRCS =  $(addprefix srcs/libft/libft/, $(LIBFT_SRCS)) \
 		$(addprefix srcs/libft/libft/, $(LIBFT_BONUS)) \
@@ -96,7 +97,7 @@ $(NAME): $(OBJS)
 		@echo "${YELLOW}Libary $(NAME) created.$(NC)"
 
 $(PUSH_SWAP): $(OBJS) $(PUSH_SWAP_OBJS)
-	@$(CC) $(PUSH_SWAP_OBJS) -L. -lft -o $(PUSH_SWAP)
+	@$(CC) -g $(PUSH_SWAP_OBJS) -L. -lft -o $(PUSH_SWAP)
 	@echo "${GREEN}Executable $(PUSH_SWAP) created.${NC}"
 
 %.o: %.c
