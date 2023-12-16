@@ -6,7 +6,7 @@
 #    By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2023/12/16 13:23:38 by arnaud           ###   ########.fr        #
+#    Updated: 2023/12/16 13:29:52 by arnaud           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,9 +80,9 @@ FT_PRINTF_SRCS = 	ft_printf.c \
 
 PUSH_SWAP_SRCS = push_swap.c
 
-SRCS =  $(addprefix src/libft/libft/, $(LIBFT_SRCS)) \
-		$(addprefix src/libft/libft/, $(LIBFT_BONUS)) \
-		$(addprefix src/libft/ft_printf/, $(FT_PRINTF_SRCS)) \
+SRCS =  $(addprefix srcs/libft/libft/, $(LIBFT_SRCS)) \
+		$(addprefix srcs/libft/libft/, $(LIBFT_BONUS)) \
+		$(addprefix srcs/libft/ft_printf/, $(FT_PRINTF_SRCS)) \
 		$(PUSH_SWAP_SRCS)
 
 OBJS = $(SRCS:.c=.o)
