@@ -6,7 +6,7 @@
 #    By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2023/12/17 11:48:42 by arnaud           ###   ########.fr        #
+#    Updated: 2023/12/17 13:51:17 by arnaud           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ INCLUDES = -I$(LIBFT_DIR) -I $(FT_PRINTF_DIR)/includes
 RED=\033[0;31m
 GREEN=\033[0;32m
 YELLOW=\033[1;33m
+CYAN=\033[0;36m
 NC=\033[0m
 
 LIBFT_SRCS = 	ft_isdigit.c \
@@ -80,7 +81,8 @@ FT_PRINTF_SRCS = 	ft_printf.c \
 
 PUSH_SWAP_SRCS = push_swap.c \
 				srcs/filter_atoi.c \
-				srcs/operations/swap.c
+				srcs/operations/swap.c \
+				srcs/actions/actions_swap.c
 
 SRCS =  $(addprefix srcs/libft/libft/, $(LIBFT_SRCS)) \
 		$(addprefix srcs/libft/libft/, $(LIBFT_BONUS)) \
@@ -99,10 +101,10 @@ $(NAME): $(OBJS)
 
 $(PUSH_SWAP): $(OBJS) $(PUSH_SWAP_OBJS)
 	@$(CC) -g $(PUSH_SWAP_OBJS) -L. -lft -o $(PUSH_SWAP)
-	@echo "${GREEN}Executable $(PUSH_SWAP) created.${NC}"
+	@echo "${YELLOW}Executable $(PUSH_SWAP) created.${NC}"
 
 %.o: %.c
-	@echo "${RED}Compiling $<...${NC}"
+	@echo "${CYAN}Compiling $<...${NC}"
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:

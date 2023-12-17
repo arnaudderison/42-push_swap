@@ -6,13 +6,13 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 11:18:43 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 11:59:23 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/17 13:42:11 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	sa(t_list **stack_a)
+void	swap(t_list **stack_a)
 {
 	t_list	*tmp_a;
 	t_list	*tmp_b;

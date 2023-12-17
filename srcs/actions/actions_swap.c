@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   actions.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 17:46:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 13:50:32 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/17 13:43:32 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/17 13:49:36 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../../includes/push_swap.h"
 
-# include "ft_printf.h"
-# include "libft.h"
-# include <limits.h>
-
-typedef struct s_stacks
+void	sa(t_list **stack)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		stack_a_size;
-	int		stack_b_size;
-}			t_stacks;
+	if (!(*stack))
+		return ;
+	swap(stack);
+	ft_printf("sa\n");
+}
+void	sb(t_list **stack)
+{
+	if (!(*stack))
+		return ;
+	swap(stack);
+	ft_printf("sb\n");
+}
 
-int			filter_atoi(const char *str);
-void		swap(t_list **stack_a);
-void		sa(t_list **stack);
-void		sb(t_list **stack);
-void		ss(t_list **stack_a, t_list **stack_b);
-
-#endif
+void	ss(t_list **stack_a, t_list **stack_b)
+{
+	if (!(*stack_b))
+		return ;
+	swap(stack_a);
+	swap(stack_b);
+	ft_printf("ss\n");
+}
