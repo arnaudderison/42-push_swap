@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:46:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 18:40:07 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/17 19:09:11 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,9 @@ void		rotate(t_list **stack);
 void		ra(t_list **stack);
 void		rb(t_list **stack);
 void		rr(t_list **stack_a, t_list **stack_b);
+void		reverse_rotate(t_list **stack);
+void		rra(t_list **stack);
+void		rrb(t_list **stack);
+void		rrr(t_list **stack_a, t_list **stack_b);
 
 #endif

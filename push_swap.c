@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:28:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 12:16:19 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/17 18:51:14 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	main(int argc, char **argv)
 	stacks->stack_b = NULL;
 	stacks->stack_a_size = ft_lstsize(stacks->stack_a);
 	stacks->stack_b = 0;
-	sb(&(stacks->stack_a));
+	reverse_rotate(&(stacks->stack_a));
 	ft_printf("\n##########Termined##########\n");
 	return (0);
 }

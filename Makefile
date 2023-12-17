@@ -6,7 +6,7 @@
 #    By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2023/12/17 13:51:17 by arnaud           ###   ########.fr        #
+#    Updated: 2023/12/17 19:12:30 by arnaud           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,12 @@ FT_PRINTF_SRCS = 	ft_printf.c \
 PUSH_SWAP_SRCS = push_swap.c \
 				srcs/filter_atoi.c \
 				srcs/operations/swap.c \
-				srcs/actions/actions_swap.c
+				srcs/operations/rotate.c \
+				srcs/operations/push.c \
+				srcs/actions/actions_swap.c \
+				srcs/actions/actions_push.c \
+				srcs/action/actions_reverse_rotate.c \
+				srcs/actions/actions_rotate.c
 
 SRCS =  $(addprefix srcs/libft/libft/, $(LIBFT_SRCS)) \
 		$(addprefix srcs/libft/libft/, $(LIBFT_BONUS)) \
