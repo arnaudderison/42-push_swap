@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:46:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 14:23:16 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/17 18:40:07 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@ void		ss(t_list **stack_a, t_list **stack_b);
 void		push(t_list **stack_a, t_list **stack_b);
 void		pa(t_list **stack_a, t_list **stack_b);
 void		pb(t_list **stack_a, t_list **stack_b);
+void		rotate(t_list **stack);
+void		ra(t_list **stack);
+void		rb(t_list **stack);
+void		rr(t_list **stack_a, t_list **stack_b);
 
 #endif
