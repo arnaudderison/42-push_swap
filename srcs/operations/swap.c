@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filter_atoi.c                                      :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 21:21:19 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 11:47:41 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/17 11:18:43 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/17 11:51:30 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_isnotnb(char c)
-{
-	return (c < '0' || c > '9');
-}
+#include "../../includes/push_swap.h"
 
-int	filter_atoi(const char *str)
+void	sa(t_list **stack_a)
 {
-	int	result;
-	int	sign;
+	t_list	*tmp_a;
+	t_list	*tmp_b;
+	t_list	*debug;
 
-	result = 0;
-	sign = 1;
-	if (!str)
-		return (0);
-	while (ft_isnotnb(*str))
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
+	if (!stack_a || !(*stack_a)->next)
+		return ;
+	tmp_a = *stack_a;
+	tmp_b = (*stack_a)->next;
+	tmp_a->next = tmp_b->next;
+	tmp_b->next = tmp_a;
+	*stack_a = tmp_b;
+	ft_printf("sa\n");
 }
