@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:28:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/16 21:26:46 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/17 11:15:07 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	main(int argc, char **argv)
 {
 	char		**args;
 	t_stacks	*stacks;
-	t_list		*tmp;
 
 	if (argc == 1)
 		return (0);
@@ -87,12 +86,9 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
 	stacks->stack_a = ft_init(args, argc);
-	tmp = stacks->stack_a;
-	while (tmp)
-	{
-		ft_printf("nbr -> %d\n", *(int *)(tmp->content));
-		tmp = tmp->next;
-	}
+	stacks->stack_b = NULL;
+	stacks->stack_a_size = ft_lstsize(stacks->stack_a);
+	stacks->stack_b = 0;
 	ft_printf("\nTermined");
 	return (0);
 }
