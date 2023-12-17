@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:28:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 11:46:34 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/17 12:06:03 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static int	ft_is_validate(t_list *list, int nbr)
 {
 	t_list	*tmp;
 
-	if (nbr < INT_MIN || nbr > INT_MAX)
-		return (0);
 	tmp = list;
 	while (tmp)
 	{
@@ -31,7 +29,14 @@ static int	ft_is_validate(t_list *list, int nbr)
 static int	*atoi_malloc(char *nbr)
 {
 	int	*nb;
+	int	i;
 
+	i = -1;
+	while (nbr[++i])
+	{
+		if (nbr[i] < '0' || nbr[i] > '9')
+			return (NULL);
+	}
 	nb = malloc(sizeof(int));
 	if (!nb)
 		return (NULL);
@@ -57,10 +62,7 @@ static t_list	*ft_init(char **args, int count)
 		if (!nbr)
 			return (NULL);
 		if (!ft_is_validate(ret, *nbr) || !nbr)
-		{
-			ft_putstr_fd("Error init\n", 2);
 			return (NULL);
-		}
 		tmp = ft_lstnew(nbr);
 		ft_lstadd_back(&ret, tmp);
 		i++;
@@ -81,15 +83,17 @@ int	main(int argc, char **argv)
 		args = argv;
 	stacks = (t_stacks *)malloc(sizeof(t_stacks));
 	if (!args || !stacks)
+		return (-1);
+	stacks->stack_a = ft_init(args, argc);
+	if (!(stacks->stack_a))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (-1);
 	}
-	stacks->stack_a = ft_init(args, argc);
 	stacks->stack_b = NULL;
 	stacks->stack_a_size = ft_lstsize(stacks->stack_a);
 	stacks->stack_b = 0;
 	sa(&(stacks->stack_a));
-	ft_printf("\nTermined");
+	ft_printf("\n##########Termined##########\n");
 	return (0);
 }
