@@ -6,13 +6,13 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 21:21:19 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 11:54:53 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/18 14:16:20 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 static int	ft_isnotnb(char c)
 {
-	return (c < '0' || c > '9');
+	return ((c < '0' || c > '9') && (c != '-' && c != '+'));
 }
 
 int	filter_atoi(const char *str)

@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:28:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/18 10:24:02 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/18 14:14:39 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	*atoi_malloc(char *nbr)
 	i = -1;
 	while (nbr[++i])
 	{
-		if (nbr[i] < '0' || nbr[i] > '9')
+		if ((nbr[i] < '0' || nbr[i] > '9') && (nbr[i] != '-' && nbr[i] != '+'))
 			return (NULL);
 	}
 	nb = malloc(sizeof(int));

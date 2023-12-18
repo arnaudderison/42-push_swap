@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   ft_lstposintmax.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 10:08:53 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/18 14:04:07 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/18 13:50:27 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/18 14:06:33 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	sort(t_stacks **stacks)
+int	ft_lstposintlax(t_list **stack)
 {
-	if (!stacks || !(*stacks) || (*stacks)->stack_a_size == 1)
-		return ;
-	if ((*stacks)->stack_a_size == 2)
-		sort_two_nb(&((*stacks)->stack_a));
-	else if ((*stacks)->stack_a_size == 3)
-		sort_three_nb(&((*stacks)->stack_a));
-	else if ((*stacks)->stack_a_size > 3 && (*stacks)->stack_a_size <= 5)
-		sort_between_three_five(stacks);
-	else
-		ft_printf("pas encore gére\n");
+	t_list	*tmp;
+	int		i;
+	int		max;
+	int		ret;
+
+	tmp = (*stack)->next;
+	max = *(int *)((*stack)->content);
+	i = 2;
+	while (tmp)
+	{
+		if (*(int *)(tmp->content) > max)
+		{
+			max = *(int *)(tmp->content);
+			ret = i;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	return (ret);
 }
