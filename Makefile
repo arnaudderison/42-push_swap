@@ -6,7 +6,7 @@
 #    By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2023/12/18 14:01:50 by arnaud           ###   ########.fr        #
+#    Updated: 2023/12/18 14:49:17 by arnaud           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,7 @@ PUSH_SWAP_SRCS = push_swap.c \
 				srcs/actions/actions_push.c \
 				srcs/actions/actions_reverse_rotate.c \
 				srcs/actions/actions_rotate.c \
+				srcs/actions/actions_move_max.c \
 				srcs/sort/sort.c
 
 SRCS =  $(addprefix srcs/libft/libft/, $(LIBFT_SRCS)) \

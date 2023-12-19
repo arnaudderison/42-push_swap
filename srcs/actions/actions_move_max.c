@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   actions_move_max.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 10:08:53 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/18 14:47:53 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/18 14:29:39 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/18 15:13:09 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	sort(t_stacks **stacks)
+void	move_max(t_list **stack, int pos)
 {
-	if (!stacks || !(*stacks) || (*stacks)->stack_a_size == 1)
-		return ;
-	if ((*stacks)->stack_a_size == 2)
-		sort_two_nb(&((*stacks)->stack_a));
-	else if ((*stacks)->stack_a_size == 3)
-		sort_three_nb(&((*stacks)->stack_a));
-	else if ((*stacks)->stack_a_size == 4)
-		sort_four_nb(stacks);
+	int	stack_size;
+
+	stack_size = ft_lstsize(*stack);
+	if (pos < stack_size / 2)
+	{
+		while (pos--)
+			ra(stack);
+	}
 	else
-		ft_printf("pas encore gére\n");
+	{
+		pos = stack_size - pos + 1;
+		while (pos--)
+			rra(stack);
+	}
 }

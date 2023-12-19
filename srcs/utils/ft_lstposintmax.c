@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 13:50:27 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/18 14:06:33 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/18 14:58:10 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int	ft_lstposintlax(t_list **stack)
 	int		max;
 	int		ret;
 
-	tmp = (*stack)->next;
+	tmp = (*stack);
 	max = *(int *)((*stack)->content);
-	i = 2;
+	i = 1;
+	ret = 1;
 	while (tmp)
 	{
 		if (*(int *)(tmp->content) > max)

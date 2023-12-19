@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:26 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/18 14:02:49 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/18 14:50:07 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,13 @@ void	sort_three_nb(t_list **stack)
 		rra(stack);
 }
 
-void	sort_between_three_five(t_stacks **stacks)
+void	sort_four_nb(t_stacks **stacks)
 {
-	ft_printf("%d", ft_lstposintlax(&((*stacks)->stack_a)));
+	int	posmax;
+
+	posmax = ft_lstposintlax(&((*stacks)->stack_a));
+	move_max(&((*stacks)->stack_a), posmax);
+	pb(&((*stacks)->stack_a), &((*stacks)->stack_b));
+	sort_three_nb(&((*stacks)->stack_a));
+	pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
 }
