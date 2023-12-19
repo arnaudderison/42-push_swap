@@ -15,3 +15,21 @@
 ## Summury
 
 > not yet written
+
+## Radix pseudo code
+
+```
+fonction tri_radix(pile A):
+max_val = trouver_max(pile A)
+nb_bits = calculer_nb_bits(max_val)
+
+pour chaque bit de 0 à nb_bits:
+	pour chaque nombre dans pile A:
+		si le bit actuel du nombre est 0:
+			pb()  # pousser sur la pile B
+		sinon:
+			laisser sur la pile A
+
+	tant que pile B n'est pas vide:
+		pa()  # ramener tous les éléments sur la pile A
+```
