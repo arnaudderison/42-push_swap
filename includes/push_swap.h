@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:46:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 16:41:59 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/19 20:11:46 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,13 @@ void		rrr(t_list **stack_a, t_list **stack_b);
 void		sort_two_nb(t_list **stack);
 void		sort(t_stacks **stacks);
 void		sort_three_nb(t_list **stack);
-int			ft_lstposintlax(t_list **stack);
+int			ft_lstposintmin(t_list **stack);
 void		sort_four_nb(t_stacks **stacks);
-void		move_max(t_list **stack, int pos);
+void		move_min(t_list **stack, int pos);
 void		sort_five_nb(t_stacks **stacks);
+int			ft_lstintmax(t_list **stack);
+int			ft_intbit_count(int nb);
+void		sort_radix(t_stacks **stacks);
+int			ft_lstsorted(t_list **list);
 
 #endif

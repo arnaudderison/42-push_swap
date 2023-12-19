@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_push.c                                     :+:      :+:    :+:   */
+/*   ft_lstintmax.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 14:15:13 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 19:21:07 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/19 18:04:25 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/19 18:53:00 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	pa(t_list **stack_a, t_list **stack_b)
+int	ft_lstintmax(t_list **stack)
 {
-	push(stack_b, stack_a);
-	ft_printf("pa\n");
-}
+	t_list	*tmp;
+	int		max;
 
-void	pb(t_list **stack_a, t_list **stack_b)
-{
-	push(stack_a, stack_b);
-	ft_printf("pb\n");
+	if (!stack || !(*stack))
+		return (0);
+	tmp = *stack;
+	max = *(int *)(tmp->content);
+	while (tmp && tmp->next != NULL)
+	{
+		if (max < *(int *)(tmp->next->content))
+			max = *(int *)(tmp->next->content);
+		tmp = tmp->next;
+	}
+	return (max);
 }

@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:26 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 16:39:28 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/19 20:15:26 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,63 @@ void	sort_three_nb(t_list **stack)
 
 void	sort_four_nb(t_stacks **stacks)
 {
-	int	posmax;
+	int	posmin;
 
-	posmax = ft_lstposintlax(&((*stacks)->stack_a));
-	move_max(&((*stacks)->stack_a), posmax);
-	pb(&((*stacks)->stack_a), &((*stacks)->stack_b));
+	if (ft_lstsorted(&((*stacks)->stack_a)) == 0)
+		return ;
+	posmin = ft_lstposintmin(&((*stacks)->stack_a));
+	move_min(&((*stacks)->stack_a), posmin);
+	pb(&(*stacks)->stack_a, &(*stacks)->stack_b);
 	sort_three_nb(&((*stacks)->stack_a));
 	pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
 }
 
 void	sort_five_nb(t_stacks **stacks)
 {
-	int	posmax;
+	int	posmin;
 
-	posmax = ft_lstposintlax(&((*stacks)->stack_a));
-	move_max(&((*stacks)->stack_a), posmax);
+	if (ft_lstsorted(&((*stacks)->stack_a)) == 0)
+		return ;
+	posmin = ft_lstposintmin(&((*stacks)->stack_a));
+	move_min(&((*stacks)->stack_a), posmin);
+	if (ft_lstsorted(&((*stacks)->stack_a)) == 0)
+		return ;
 	pb(&((*stacks)->stack_a), &((*stacks)->stack_b));
-	posmax = ft_lstposintlax(&((*stacks)->stack_a));
-	move_max(&((*stacks)->stack_a), posmax);
+	posmin = ft_lstposintmin(&((*stacks)->stack_a));
+	move_min(&((*stacks)->stack_a), posmin);
+	if (ft_lstsorted(&((*stacks)->stack_a)) == 0)
+		return ;
 	pb(&((*stacks)->stack_a), &((*stacks)->stack_b));
-	sort_two_nb(&((*stacks)->stack_b));
 	sort_three_nb(&((*stacks)->stack_a));
 	pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
+	pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
+}
+
+void	sort_radix(t_stacks **stacks)
+{
+	int	max;
+	int	bits;
+	int	bit;
+	int	sizeof_stack;
+	int	i;
+	int	j;
+
+	i = -1;
+	max = ft_lstintmax(&((*stacks)->stack_a));
+	bits = ft_intbit_count(max);
+	sizeof_stack = (*stacks)->stack_a_size;
+	while (++i <= bits)
+	{
+		j = -1;
+		while (++j < sizeof_stack)
+		{
+			bit = ((*(int *)((*stacks)->stack_a->content)) >> i) & 1;
+			if (bit == 0)
+				pb(&(*stacks)->stack_a, &(*stacks)->stack_b);
+			else
+				ra(&(*stacks)->stack_a);
+		}
+		while ((*stacks)->stack_b != NULL)
+			pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
+	}
 }

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_push.c                                     :+:      :+:    :+:   */
+/*   actions_move_max.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 14:15:13 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 19:21:07 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/18 14:29:39 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/19 19:54:48 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	move_min(t_list **stack, int pos)
 {
-	push(stack_b, stack_a);
-	ft_printf("pa\n");
-}
+	int	stack_size;
 
-void	pb(t_list **stack_a, t_list **stack_b)
-{
-	push(stack_a, stack_b);
-	ft_printf("pb\n");
+	stack_size = ft_lstsize(*stack);
+	if (pos >= stack_size / 2)
+	{
+		pos = stack_size - pos + 1;
+		while (pos--)
+			rra(stack);
+	}
 }

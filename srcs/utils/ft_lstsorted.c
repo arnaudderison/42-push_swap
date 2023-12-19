@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstposintmax.c                                  :+:      :+:    :+:   */
+/*   ft_lstsorted.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 13:50:27 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/18 14:58:10 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/19 20:08:06 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/19 20:11:33 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	ft_lstposintlax(t_list **stack)
+int	ft_lstsorted(t_list **list)
 {
 	t_list	*tmp;
-	int		i;
-	int		max;
-	int		ret;
 
-	tmp = (*stack);
-	max = *(int *)((*stack)->content);
-	i = 1;
-	ret = 1;
-	while (tmp)
+	if (!list || !(*list))
+		return (-1);
+	tmp = *list;
+	while (tmp && tmp->next)
 	{
-		if (*(int *)(tmp->content) > max)
-		{
-			max = *(int *)(tmp->content);
-			ret = i;
-		}
+		if (*(int *)tmp->content > *(int *)tmp->next->content)
+			return (-1);
 		tmp = tmp->next;
-		i++;
 	}
-	return (ret);
+	return (0);
 }
