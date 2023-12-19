@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:26 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 20:15:26 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/19 20:18:02 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ void	sort_five_nb(t_stacks **stacks)
 	pb(&((*stacks)->stack_a), &((*stacks)->stack_b));
 	posmin = ft_lstposintmin(&((*stacks)->stack_a));
 	move_min(&((*stacks)->stack_a), posmin);
-	if (ft_lstsorted(&((*stacks)->stack_a)) == 0)
-		return ;
 	pb(&((*stacks)->stack_a), &((*stacks)->stack_b));
 	sort_three_nb(&((*stacks)->stack_a));
 	pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
