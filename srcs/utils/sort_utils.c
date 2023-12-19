@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:26 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/18 14:50:07 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/19 16:39:28 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,21 @@ void	sort_four_nb(t_stacks **stacks)
 	posmax = ft_lstposintlax(&((*stacks)->stack_a));
 	move_max(&((*stacks)->stack_a), posmax);
 	pb(&((*stacks)->stack_a), &((*stacks)->stack_b));
+	sort_three_nb(&((*stacks)->stack_a));
+	pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
+}
+
+void	sort_five_nb(t_stacks **stacks)
+{
+	int	posmax;
+
+	posmax = ft_lstposintlax(&((*stacks)->stack_a));
+	move_max(&((*stacks)->stack_a), posmax);
+	pb(&((*stacks)->stack_a), &((*stacks)->stack_b));
+	posmax = ft_lstposintlax(&((*stacks)->stack_a));
+	move_max(&((*stacks)->stack_a), posmax);
+	pb(&((*stacks)->stack_a), &((*stacks)->stack_b));
+	sort_two_nb(&((*stacks)->stack_b));
 	sort_three_nb(&((*stacks)->stack_a));
 	pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
 }
