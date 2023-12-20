@@ -6,13 +6,13 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:46:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/20 14:01:05 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/20 21:01:28 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
+# define WHITE_SPACE 32
 # include "ft_printf.h"
 # include "libft.h"
 
@@ -25,6 +25,7 @@ typedef struct s_stacks
 }			t_stacks;
 
 int			filter_atoi(const char *str);
+t_list		*ft_init(char **args, int count);
 void		swap(t_list **stack_a);
 void		sa(t_list **stack);
 void		sb(t_list **stack);

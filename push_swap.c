@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:28:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/20 13:58:41 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/20 21:01:33 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	*atoi_malloc(char *nbr)
 	return (nb);
 }
 
-static t_list	*ft_init(char **args, int count)
+t_list	*ft_init(char **args, int count)
 {
 	int		i;
 	t_list	*ret;
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	if (argc == 2)
-		args = ft_split(argv[1], 32);
+		args = ft_split(argv[1], WHITE_SPACE);
 	else
 		args = argv;
 	stacks = (t_stacks *)malloc(sizeof(t_stacks));
