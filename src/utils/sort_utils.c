@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:26 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/20 13:58:28 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/20 14:07:21 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	sort_five_nb(t_stacks **stacks)
 
 void	sort_radix(t_stacks **stacks)
 {
-	int	max;
 	int	bits;
 	int	bit;
 	int	sizeof_stack;
@@ -91,8 +90,7 @@ void	sort_radix(t_stacks **stacks)
 	int	j;
 
 	i = -1;
-	max = ft_lstintmax(&((*stacks)->stack_a));
-	bits = ft_intbit_count(max);
+	bits = ft_intbit_count(ft_lstintmax(&((*stacks)->stack_a)));
 	sizeof_stack = (*stacks)->stack_a_size;
 	while (++i <= bits)
 	{
