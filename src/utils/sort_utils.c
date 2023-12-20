@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:26 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/20 14:07:21 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/20 14:19:13 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,7 @@ void	sort_radix(t_stacks **stacks)
 		}
 		while ((*stacks)->stack_b != NULL)
 			pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
+		if (ft_lstsorted(&((*stacks)->stack_a)) == 0)
+			return ;
 	}
 }
