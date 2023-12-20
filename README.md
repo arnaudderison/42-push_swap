@@ -12,13 +12,46 @@
 </p>
 
 
-## Summury
+## Goals 📝
 
-> not yet written
+> The main objective of this project is to sort data on a stack, using a limited set of operations and minimizing the number of these operations.
 
-## Radix pseudo code
+## Details 🔎
+<b>Operations available:</b>
+| Operations  | Description   |
+|:-------------:|---------------|
+| sa            | swap first two elements of stack A |
+| sb            | swap first two elements of stack B |
+| ss            | sa and sb at the same time |
+| pa            | pops the first elememt on B and puts it on top of A |
+| pb            | pops the first elememt on A and puts it on top of B |
+| ra            | rotates stuck A up by one|
+| rb            | rotates stuck B up by one |
+| rr            | rotates both A and B up by one |
+| rra           | rotates stuck A down by one |
+| rrb           | rotates stuck B down by one |
+| rrr           | rotates both A and B down by one |
 
+<b>The program must work this way:</b>
+```shell
+$>./push_swap 2 1 3 6 5 8
+sa
+pb
+pb
+pb
+sa
+pa
+pa
+pa
+$>./push_swap 0 one 2 3
+Error
 ```
+
+## Tip for you 😋
+
+<b>Radix pseudo code :</b>
+
+```peudocode
 fonction tri_radix(pile A):
 max_val = trouver_max(pile A)
 nb_bits = calculer_nb_bits(max_val)
