@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_push.c                                     :+:      :+:    :+:   */
+/*   actions_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 14:15:13 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 19:21:07 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/17 18:36:39 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/20 13:57:44 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	ra(t_list **stack)
 {
-	push(stack_b, stack_a);
-	ft_printf("pa\n");
+	rotate(stack);
+	ft_printf("ra\n");
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	rb(t_list **stack)
 {
-	push(stack_a, stack_b);
-	ft_printf("pb\n");
+	rotate(stack);
+	ft_printf("rb\n");
+}
+
+void	rr(t_list **stack_a, t_list **stack_b)
+{
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_printf("rr\n");
 }

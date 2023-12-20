@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_swap.c                                     :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 13:43:32 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 19:13:00 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/17 13:54:38 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/20 13:57:57 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	sa(t_list **stack)
+void	push(t_list **stack_a, t_list **stack_b)
 {
-	if (!(*stack))
-		return ;
-	swap(stack);
-	ft_printf("sa\n");
-}
+	t_list	*tmp;
 
-void	sb(t_list **stack)
-{
-	if (!(*stack))
+	if (!stack_a || !stack_b || !(*stack_a))
 		return ;
-	swap(stack);
-	ft_printf("sb\n");
-}
-
-void	ss(t_list **stack_a, t_list **stack_b)
-{
-	if (!(*stack_b))
-		return ;
-	swap(stack_a);
-	swap(stack_b);
-	ft_printf("ss\n");
+	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	tmp->next = NULL;
+	ft_lstadd_front(stack_b, tmp);
 }

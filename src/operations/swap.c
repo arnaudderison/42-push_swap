@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_move_max.c                                 :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 14:29:39 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 19:54:48 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/17 11:18:43 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/20 13:58:03 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	move_min(t_list **stack, int pos)
+void	swap(t_list **stack_a)
 {
-	int	stack_size;
+	t_list	*tmp_a;
+	t_list	*tmp_b;
 
-	stack_size = ft_lstsize(*stack);
-	if (pos >= stack_size / 2)
-	{
-		pos = stack_size - pos + 1;
-		while (pos--)
-			rra(stack);
-	}
+	if (!stack_a || !(*stack_a)->next)
+		return ;
+	tmp_a = *stack_a;
+	tmp_b = (*stack_a)->next;
+	tmp_a->next = tmp_b->next;
+	tmp_b->next = tmp_a;
+	*stack_a = tmp_b;
 }

@@ -6,11 +6,11 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:28:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 19:18:50 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/20 13:58:41 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "./include/push_swap.h"
 
 static int	ft_is_validate(t_list *list, int nbr)
 {

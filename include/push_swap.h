@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:46:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 20:11:46 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/20 14:01:05 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "ft_printf.h"
 # include "libft.h"
-# include <limits.h>
 
 typedef struct s_stacks
 {

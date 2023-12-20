@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstposintmin.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 13:54:38 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 18:51:53 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/18 13:50:27 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/20 13:58:20 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	push(t_list **stack_a, t_list **stack_b)
+int	ft_lstposintmin(t_list **stack)
 {
 	t_list	*tmp;
+	int		i;
+	int		min;
+	int		ret;
 
-	if (!stack_a || !stack_b || !(*stack_a))
-		return ;
-	tmp = *stack_a;
-	*stack_a = (*stack_a)->next;
-	tmp->next = NULL;
-	ft_lstadd_front(stack_b, tmp);
+	tmp = (*stack);
+	min = *(int *)((*stack)->content);
+	i = 1;
+	ret = 1;
+	while (tmp)
+	{
+		if (*(int *)(tmp->content) < min)
+		{
+			min = *(int *)(tmp->content);
+			ret = i;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	return (ret);
 }

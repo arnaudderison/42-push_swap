@@ -6,11 +6,11 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:26 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 20:18:02 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/20 13:58:28 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	sort_two_nb(t_list **stack)
 {

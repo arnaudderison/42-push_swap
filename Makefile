@@ -6,7 +6,7 @@
 #    By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2023/12/19 20:12:15 by arnaud           ###   ########.fr        #
+#    Updated: 2023/12/20 14:04:11 by arnaud           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME = libft.a
 PUSH_SWAP = push_swap.out
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT_DIR = ./srcs/libft/libft
-FT_PRINTF_DIR = ./srcs/libft/ft_printf
+LIBFT_DIR = ./src/libft/libft
+FT_PRINTF_DIR = ./src/libft/ft_printf
 INCLUDES = -I$(LIBFT_DIR) -I $(FT_PRINTF_DIR)/includes
 
 RED=\033[0;31m
@@ -80,25 +80,25 @@ FT_PRINTF_SRCS = 	ft_printf.c \
 		srcs/ft_puthex_fd_printf.c
 
 PUSH_SWAP_SRCS = push_swap.c \
-				srcs/utils/filter_atoi.c \
-				srcs/utils/sort_utils.c \
-				srcs/utils/ft_lstposintmin.c \
-				srcs/utils/ft_lstintmax.c \
-				srcs/utils/ft_intbit_count.c \
-				srcs/utils/ft_lstsorted.c \
-				srcs/operations/swap.c \
-				srcs/operations/rotate.c \
-				srcs/operations/push.c \
-				srcs/actions/actions_swap.c \
-				srcs/actions/actions_push.c \
-				srcs/actions/actions_reverse_rotate.c \
-				srcs/actions/actions_rotate.c \
-				srcs/actions/actions_move_min.c \
-				srcs/sort/sort.c
+				src/utils/filter_atoi.c \
+				src/utils/sort_utils.c \
+				src/utils/ft_lstposintmin.c \
+				src/utils/ft_lstintmax.c \
+				src/utils/ft_intbit_count.c \
+				src/utils/ft_lstsorted.c \
+				src/operations/swap.c \
+				src/operations/rotate.c \
+				src/operations/push.c \
+				src/actions/actions_swap.c \
+				src/actions/actions_push.c \
+				src/actions/actions_reverse_rotate.c \
+				src/actions/actions_rotate.c \
+				src/actions/actions_move_min.c \
+				src/sort/sort.c
 
-SRCS =  $(addprefix srcs/libft/libft/, $(LIBFT_SRCS)) \
-		$(addprefix srcs/libft/libft/, $(LIBFT_BONUS)) \
-		$(addprefix srcs/libft/ft_printf/, $(FT_PRINTF_SRCS)) \
+SRCS =  $(addprefix src/libft/libft/, $(LIBFT_SRCS)) \
+		$(addprefix src/libft/libft/, $(LIBFT_BONUS)) \
+		$(addprefix src/libft/ft_printf/, $(FT_PRINTF_SRCS)) \
 		$(PUSH_SWAP_SRCS)
 
 OBJS = $(SRCS:.c=.o)

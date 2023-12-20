@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstintmax.c                                     :+:      :+:    :+:   */
+/*   actions_move_min.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 18:04:25 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/19 18:53:00 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/18 14:29:39 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/20 13:57:36 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	ft_lstintmax(t_list **stack)
+void	move_min(t_list **stack, int pos)
 {
-	t_list	*tmp;
-	int		max;
+	int	stack_size;
 
-	if (!stack || !(*stack))
-		return (0);
-	tmp = *stack;
-	max = *(int *)(tmp->content);
-	while (tmp && tmp->next != NULL)
+	stack_size = ft_lstsize(*stack);
+	if (pos >= stack_size / 2)
 	{
-		if (max < *(int *)(tmp->next->content))
-			max = *(int *)(tmp->next->content);
-		tmp = tmp->next;
+		pos = stack_size - pos + 1;
+		while (pos--)
+			rra(stack);
 	}
-	return (max);
 }

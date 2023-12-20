@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_lstsorted.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 11:18:43 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 13:53:47 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/19 20:08:06 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/20 13:58:23 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	swap(t_list **stack_a)
+int	ft_lstsorted(t_list **list)
 {
-	t_list	*tmp_a;
-	t_list	*tmp_b;
+	t_list	*tmp;
 
-	if (!stack_a || !(*stack_a)->next)
-		return ;
-	tmp_a = *stack_a;
-	tmp_b = (*stack_a)->next;
-	tmp_a->next = tmp_b->next;
-	tmp_b->next = tmp_a;
-	*stack_a = tmp_b;
+	if (!list || !(*list))
+		return (-1);
+	tmp = *list;
+	while (tmp && tmp->next)
+	{
+		if (*(int *)tmp->content > *(int *)tmp->next->content)
+			return (-1);
+		tmp = tmp->next;
+	}
+	return (0);
 }

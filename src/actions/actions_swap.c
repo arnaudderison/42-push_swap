@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_rotate.c                                   :+:      :+:    :+:   */
+/*   actions_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 18:36:39 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/17 19:11:36 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/17 13:43:32 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/20 13:57:47 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	ra(t_list **stack)
+void	sa(t_list **stack)
 {
-	rotate(stack);
-	ft_printf("ra\n");
+	if (!(*stack))
+		return ;
+	swap(stack);
+	ft_printf("sa\n");
 }
 
-void	rb(t_list **stack)
+void	sb(t_list **stack)
 {
-	rotate(stack);
-	ft_printf("rb\n");
+	if (!(*stack))
+		return ;
+	swap(stack);
+	ft_printf("sb\n");
 }
 
-void	rr(t_list **stack_a, t_list **stack_b)
+void	ss(t_list **stack_a, t_list **stack_b)
 {
-	rotate(stack_a);
-	rotate(stack_b);
-	ft_printf("rr\n");
+	if (!(*stack_b))
+		return ;
+	swap(stack_a);
+	swap(stack_b);
+	ft_printf("ss\n");
 }
