@@ -6,17 +6,19 @@
 #    By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2023/12/20 14:04:11 by arnaud           ###   ########.fr        #
+#    Updated: 2023/12/20 18:06:14 by arnaud           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 PUSH_SWAP = push_swap.out
+PUSH_SWAP_TESTEUR = checker
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./src/libft/libft
 FT_PRINTF_DIR = ./src/libft/ft_printf
-INCLUDES = -I$(LIBFT_DIR) -I $(FT_PRINTF_DIR)/includes
+GNL_DIR = ./src/libft/gnl
+INCLUDES = -I$(LIBFT_DIR) -I $(FT_PRINTF_DIR)/includes -I$(GNL_DIR)
 
 RED=\033[0;31m
 GREEN=\033[0;32m
@@ -79,6 +81,9 @@ FT_PRINTF_SRCS = 	ft_printf.c \
 		srcs/ft_strlcpy_printf.c \
 		srcs/ft_puthex_fd_printf.c
 
+GNL_SRCS = get_next_line_bonus.c \
+		get_next_line_utils_bonus.c
+
 PUSH_SWAP_SRCS = push_swap.c \
 				src/utils/filter_atoi.c \
 				src/utils/sort_utils.c \
@@ -96,24 +101,33 @@ PUSH_SWAP_SRCS = push_swap.c \
 				src/actions/actions_move_min.c \
 				src/sort/sort.c
 
+PUSH_SWAP_TESTEUR_SRCS = checker.c
+
 SRCS =  $(addprefix src/libft/libft/, $(LIBFT_SRCS)) \
 		$(addprefix src/libft/libft/, $(LIBFT_BONUS)) \
 		$(addprefix src/libft/ft_printf/, $(FT_PRINTF_SRCS)) \
+		$(addprefix src/libft/gnl/, $(GNL_SRCS)) \
+		$(addprefix src/checker/, $(PUSH_SWAP_TESTEUR_SRCS)) \
 		$(PUSH_SWAP_SRCS)
 
 OBJS = $(SRCS:.c=.o)
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
+PUSH_SWAP_TESTEUR_OBJS = src/checker/$(PUSH_SWAP_TESTEUR_SRCS:.c=.o)
 
-all: $(NAME) $(PUSH_SWAP)
-	 	@echo "${GREEN}Complation completed.${NC}"
+all: $(NAME) $(PUSH_SWAP) $(PUSH_SWAP_TESTEUR)
+	@echo "${GREEN}Complation completed.${NC}"
 
 $(NAME): $(OBJS)
-		@ar rcs $(NAME) $(OBJS)
-		@echo "${YELLOW}Libary $(NAME) created.$(NC)"
+	@ar rcs $(NAME) $(OBJS)
+	@echo "${YELLOW}Libary $(NAME) created.$(NC)"
 
 $(PUSH_SWAP): $(OBJS) $(PUSH_SWAP_OBJS)
 	@$(CC) -g $(PUSH_SWAP_OBJS) -L. -lft -o $(PUSH_SWAP)
 	@echo "${YELLOW}Executable $(PUSH_SWAP) created.${NC}"
+
+$(PUSH_SWAP_TESTEUR): $(OBJS) $(PUSH_SWAP_OBJS) $(PUSH_SWAP_TESTEUR_OBJS)
+	@$(CC) -g $(PUSH_SWAP_TESTEUR_OBJS) -L. -lft -o $(PUSH_SWAP_TESTEUR)
+	@echo "${YELLOW}Executable $(PUSH_SWAP_TESTEUR) created.${NC}"
 
 %.o: %.c
 	@echo "${CYAN}Compiling $<...${NC}"

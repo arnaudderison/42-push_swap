@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/14 16:26:33 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/20 18:20:58 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/20 17:50:36 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/20 18:13:32 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../include/push_swap.h"
+#include "ft_printf.h"
+#include "get_next_line_bonus.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	main(void)
 {
-	char	*res;
+	char	*line;
 
-	res = malloc(size * count);
-	if (!res)
-		return (NULL);
-	ft_bzero(res, size * count);
-	return (res);
+	line = get_next_line(0);
+	while (line)
+	{
+		ft_printf("[%s] -> line of testeur", line);
+		free(line);
+		line = get_next_line(0);
+	}
+	return (0);
 }
