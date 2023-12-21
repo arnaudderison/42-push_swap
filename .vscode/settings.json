@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "random": "c"
+        "random": "c",
+        "checker.h": "c",
+        "get_next_line_bonus.h": "c",
+        "checker.C": "cpp"
     }
 }
