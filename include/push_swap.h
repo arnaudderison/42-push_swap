@@ -6,14 +6,17 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:46:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/20 21:01:28 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/21 14:50:06 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # define WHITE_SPACE 32
+# define STD_IN 0
+
 # include "ft_printf.h"
+# include "get_next_line.h"
 # include "libft.h"
 
 typedef struct s_stacks
@@ -52,5 +55,8 @@ int			ft_lstintmax(t_list **stack);
 int			ft_intbit_count(int nb);
 void		sort_radix(t_stacks **stacks);
 int			ft_lstsorted(t_list **list);
+int			ft_is_validate(t_list *list, int nbr);
+int			*atoi_malloc(char *nbr);
+t_list		*ft_init(char **args, int count);
 
 #endif

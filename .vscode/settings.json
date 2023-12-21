@@ -3,6 +3,7 @@
         "random": "c",
         "checker.h": "c",
         "get_next_line_bonus.h": "c",
-        "checker.C": "cpp"
+        "checker.C": "cpp",
+        "push_swap.h": "c"
     }
 }
