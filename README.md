@@ -15,6 +15,7 @@
 ## Goals 📝
 
 > The main objective of this project is to sort data on a stack, using a limited set of operations and minimizing the number of these operations.
+> More explications [HERE](https://derison.dev/article/Undefined/42-push-swap)
 
 ## Details 🔎
 <b>Operations available:</b>
