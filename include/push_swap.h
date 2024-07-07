@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:46:34 by arnaud            #+#    #+#             */
-/*   Updated: 2024/07/07 17:11:30 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/07 19:24:15 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ void		sort_radix(t_stacks **stacks);
 int			ft_lstsorted(t_list **list);
 int			ft_is_validate(t_list *list, int nbr);
 int			*atoi_malloc(char *nbr);
+void maps(int *tab, t_stacks **stacks);
 
 #endif

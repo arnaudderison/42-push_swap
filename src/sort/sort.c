@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:08:53 by arnaud            #+#    #+#             */
-/*   Updated: 2024/07/07 19:09:26 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/07 19:11:11 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,11 @@ static int partition(int *tab, int start, int end)
 
 static void quick(int *tab, int start, int end)
 {
+	int p;
+
 	if(start < end)
 	{
-		int p = partition(tab, start, end);
+		p = partition(tab, start, end);
 		quick(tab, start, p - 1);
 		quick(tab, p + 1, end);
 	}
