@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:28:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/21 15:00:36 by arnaud           ###   ########.fr       */
+/*   Updated: 2024/07/07 17:11:37 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	stacks = (t_stacks *)malloc(sizeof(t_stacks));
 	if (!args || !stacks)
 		return (-1);
-	stacks->stack_a = ft_init(args);
+	stacks->stack_a = ft_init(args, argc);
 	if (!(stacks->stack_a))
 	{
 		ft_putstr_fd("Error\n", 2);
@@ -34,7 +34,6 @@ int	main(int argc, char **argv)
 	}
 	stacks->stack_b = NULL;
 	stacks->stack_a_size = ft_lstsize(stacks->stack_a);
-	ft_printf("le size est de %d", stacks->stack_a_size);
 	stacks->stack_b = 0;
 	sort(&stacks);
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 17:46:34 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/21 14:50:06 by arnaud           ###   ########.fr       */
+/*   Updated: 2024/07/07 17:11:30 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stacks
 }			t_stacks;
 
 int			filter_atoi(const char *str);
-t_list		*ft_init(char **args);
+t_list		*ft_init(char **args, int argc);
 void		swap(t_list **stack_a);
 void		sa(t_list **stack);
 void		sb(t_list **stack);

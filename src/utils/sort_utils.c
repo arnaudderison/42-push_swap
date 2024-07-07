@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:26 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/21 15:04:30 by arnaud           ###   ########.fr       */
+/*   Updated: 2024/07/07 15:02:54 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	sort_two_nb(t_list **stack)
 {
-	ft_printf("here");
 	if (!stack || !(*stack))
 		return ;
 	if (*(int *)(((*stack)->next)->content) < *(int *)(*stack)->content)

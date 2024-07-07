@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:48:40 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/21 15:04:42 by arnaud           ###   ########.fr       */
+/*   Updated: 2024/07/07 17:36:26 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-t_list	*ft_init(char **args)
+t_list	*ft_init(char **args, int argc)
 {
 	int		i;
 	t_list	*ret;
@@ -21,9 +21,12 @@ t_list	*ft_init(char **args)
 
 	i = 1;
 	ret = NULL;
-	while (args[i])
+	nbr = NULL;
+	tmp = NULL;
+	while (i < argc)
 	{
 		nbr = atoi_malloc(args[i]);
+		ft_printf("%d\n", *nbr);
 		if (!nbr)
 			return (NULL);
 		if (!ft_is_validate(ret, *nbr) || !nbr)
