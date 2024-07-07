@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 14:48:40 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/21 15:04:42 by arnaud           ###   ########.fr       */
+/*   Created: 2023/09/22 09:53:47 by arnaud            #+#    #+#             */
+/*   Updated: 2023/10/16 21:23:56 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../include/libft.h"
 
-t_list	*ft_init(char **args)
+int	ft_isalnum(int c)
 {
-	int		i;
-	t_list	*ret;
-	t_list	*tmp;
-	int		*nbr;
-
-	i = 1;
-	ret = NULL;
-	while (args[i])
-	{
-		nbr = atoi_malloc(args[i]);
-		if (!nbr)
-			return (NULL);
-		if (!ft_is_validate(ret, *nbr) || !nbr)
-			return (NULL);
-		tmp = ft_lstnew(nbr);
-		ft_lstadd_back(&ret, tmp);
-		i++;
-	}
-	return (ret);
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	return (0);
 }

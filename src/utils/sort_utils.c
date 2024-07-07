@@ -14,6 +14,7 @@
 
 void	sort_two_nb(t_list **stack)
 {
+	ft_printf("here");
 	if (!stack || !(*stack))
 		return ;
 	if (*(int *)(((*stack)->next)->content) < *(int *)(*stack)->content)

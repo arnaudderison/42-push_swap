@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 14:48:40 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/21 15:04:42 by arnaud           ###   ########.fr       */
+/*   Created: 2023/12/02 18:09:37 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/14 17:55:38 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../include/libft.h"
 
-t_list	*ft_init(char **args)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	int		i;
-	t_list	*ret;
 	t_list	*tmp;
-	int		*nbr;
 
-	i = 1;
-	ret = NULL;
-	while (args[i])
+	if (!alst || !new)
+		return ;
+	if (*alst == NULL)
+		*alst = new;
+	else
 	{
-		nbr = atoi_malloc(args[i]);
-		if (!nbr)
-			return (NULL);
-		if (!ft_is_validate(ret, *nbr) || !nbr)
-			return (NULL);
-		tmp = ft_lstnew(nbr);
-		ft_lstadd_back(&ret, tmp);
-		i++;
+		tmp = *alst;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = new;
 	}
-	return (ret);
 }

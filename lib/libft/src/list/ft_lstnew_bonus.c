@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 14:48:40 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/21 15:04:42 by arnaud           ###   ########.fr       */
+/*   Created: 2023/10/29 14:08:29 by arnaud            #+#    #+#             */
+/*   Updated: 2023/12/14 18:30:59 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../include/libft.h"
 
-t_list	*ft_init(char **args)
+t_list	*ft_lstnew(void *content)
 {
-	int		i;
-	t_list	*ret;
-	t_list	*tmp;
-	int		*nbr;
+	t_list	*new_elem;
 
-	i = 1;
-	ret = NULL;
-	while (args[i])
-	{
-		nbr = atoi_malloc(args[i]);
-		if (!nbr)
-			return (NULL);
-		if (!ft_is_validate(ret, *nbr) || !nbr)
-			return (NULL);
-		tmp = ft_lstnew(nbr);
-		ft_lstadd_back(&ret, tmp);
-		i++;
-	}
-	return (ret);
+	new_elem = (t_list *)(malloc(sizeof(t_list)));
+	if (!new_elem)
+		return (NULL);
+	new_elem->content = content;
+	new_elem->next = NULL;
+	return (new_elem);
 }

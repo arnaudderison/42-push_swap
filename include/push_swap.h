@@ -15,8 +15,6 @@
 # define WHITE_SPACE 32
 # define STD_IN 0
 
-# include "ft_printf.h"
-# include "get_next_line.h"
 # include "libft.h"
 
 typedef struct s_stacks
@@ -28,7 +26,7 @@ typedef struct s_stacks
 }			t_stacks;
 
 int			filter_atoi(const char *str);
-t_list		*ft_init(char **args, int count);
+t_list		*ft_init(char **args);
 void		swap(t_list **stack_a);
 void		sa(t_list **stack);
 void		sb(t_list **stack);
@@ -57,6 +55,5 @@ void		sort_radix(t_stacks **stacks);
 int			ft_lstsorted(t_list **list);
 int			ft_is_validate(t_list *list, int nbr);
 int			*atoi_malloc(char *nbr);
-t_list		*ft_init(char **args, int count);
 
 #endif

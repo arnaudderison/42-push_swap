@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/push_swap.h"
+#include "push_swap.h"
 
 void	dispastch(char *input, t_stacks *stacks)
 {
