@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:48:40 by arnaud            #+#    #+#             */
-/*   Updated: 2024/07/07 17:36:26 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/08 18:35:29 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ t_list	*ft_init(char **args, int argc)
 	while (i < argc)
 	{
 		nbr = atoi_malloc(args[i]);
-		ft_printf("%d\n", *nbr);
 		if (!nbr)
 			return (NULL);
 		if (!ft_is_validate(ret, *nbr) || !nbr)

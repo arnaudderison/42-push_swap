@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+         #
+#    By: aderison <aderison@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2023/12/21 14:18:53 by arnaud           ###   ########.fr        #
+#    Updated: 2024/07/08 20:56:37 by aderison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ PUSH_SWAP_SORT = $(addprefix src/sort/, sort.c)
 
 PUSH_SWAP_UTILS = $(addprefix src/utils/, filter_atoi.c ft_atoi_malloc.c ft_init.c \
 ft_intbit_count.c ft_is_validate.c ft_lstintmax.c ft_lstposintmin.c \
-ft_lstsorted.c sort_utils.c)
+ft_lstsorted.c sort_utils.c optimised.c quicksort.c)
 
 PUSH_SWAP_SRC = push_swap.c $(PUSH_SWAP_ACTIONS) $(PUSH_SWAP_OPERATION) $(PUSH_SWAP_SORT) $(PUSH_SWAP_UTILS)
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRC:%c=obj/%o)

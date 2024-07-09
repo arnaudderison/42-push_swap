@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:14:26 by arnaud            #+#    #+#             */
-/*   Updated: 2024/07/07 15:02:54 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/08 19:01:58 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,40 @@ void	sort_five_nb(t_stacks **stacks)
 	pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
 }
 
-void	sort_radix(t_stacks **stacks)
+void sort_radix(t_stacks **stacks) {
+    int max_bits = 0;
+    int max_num = (*stacks)->stack_a_size - 1;
+	int count = 0;
+	int bits = 0;
+	int racount = 0;
+
+    while ((max_num >> max_bits) != 0)
+        max_bits++;
+    if (max_bits % 4 != 0)
+        max_bits += 4 - (max_bits % 4);
+    for (int i = 0; i < max_bits; i += 4)
+	{
+        count = (*stacks)->stack_a_size;
+        while (count--)
+		{
+            bits = ((*(int *)((*stacks)->stack_a->content)) >> i) & 15;
+            if (bits < 8)
+                pb(&(*stacks)->stack_a, &(*stacks)->stack_b);
+            else
+			{
+                ra(&(*stacks)->stack_a);
+				racount++;
+			}
+        }
+		int i = -1;
+		while(++i < racount)
+			rra(&(*stacks)->stack_a);
+        while ((*stacks)->stack_b != NULL)
+            pa(&((*stacks)->stack_a), &((*stacks)->stack_b));
+    }
+}
+
+/*void	sort_radix(t_stacks **stacks)
 {
 	int	bits;
 	int	bit;
@@ -108,4 +141,4 @@ void	sort_radix(t_stacks **stacks)
 		if (ft_lstsorted(&((*stacks)->stack_a)) == 0)
 			return ;
 	}
-}
+}*/

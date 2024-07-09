@@ -6,72 +6,93 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 20:32:59 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/08 20:54:43 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/09 05:10:59 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static int	get_lastnb(t_stacks **stacks)
+/*static int	get_lastnb(t_stacks **stacks)
 {
-	int		i;
 	t_list	*tmp;
 
-	i = -1;
 	tmp = (*stacks)->stack_a;
-	while (++i < (*stacks)->stack_a_size)
-		tmp = (*stacks)->stack_a->next;
+	while (tmp && tmp->next)
+		tmp = tmp->next;
 	return (*(int *)tmp->content);
-}
+}*/
 
-static t_list	*get_posnb(t_list *stack, int pos)
+/*static int	partition(t_stacks **stacks, int start, int end)
 {
+	int		pivot;
 	int		i;
 	t_list	*tmp;
-
-	i = -1;
-	tmp = stack;
-	while (++i < pos)
-		tmp = tmp->next;
-	return (tmp);
-}
-
-static int	partition(t_stacks **stacks, int start, int end)
-{
-	int	pivot;
-	int	i;
-	int	j;
-	int	tmp;
+	int		j;
 
 	pivot = get_lastnb(stacks);
-	i = start - 1;
+	i = 0;
 	j = start - 1;
+	tmp = (*stacks)->stack_a;
 	while (++j < end)
 	{
-		if (*(int *)get_posnb((*stacks)->stack_a, j)->content < pivot)
+		if (!(*stacks)->stack_a) // Vérifier que stack_a n'est pas NULL
+			break;
+		if (*(int *)tmp->content < pivot)
 		{
 			i++;
-			sa(&(*stacks)->stack_a);
+			pb(&(*stacks)->stack_a, &(*stacks)->stack_b);
 		}
 		else
-			pb(&(*stacks)->stack_a, &(*stacks)->stack_b);
+			ra(&(*stacks)->stack_a);
+		tmp = (*stacks)->stack_a->next; // Mise à jour de tmp après chaque opération
 	}
 	pa(&(*stacks)->stack_a, &(*stacks)->stack_b);
 	return (i + 1);
-}
-
-static void	quick(t_stacks **stacks, int start, int end)
-{
-	int	p;
-
-	if (start < end)
-	{
-		p = partition(stacks, start, end);
-		quick(stacks, start, p - 1);
-		quick(stacks, p + 1, end);
-	}
-}
-/*static void	quick_sort(t_stacks **stacks)
-{
-	quick(stacks, 0, (*stacks)->stack_a_size - 1);
 }*/
+
+void move_elements_by_pivot(t_stacks **stacks, int pivot)
+{
+    int size = (*stacks)->stack_a_size;
+    for (int i = 0; i < size; i++)
+    {
+        if (*(int *)(*stacks)->stack_a->content <= pivot)
+        {
+            pb(&(*stacks)->stack_a, &(*stacks)->stack_b); // Pousser vers B si inférieur ou égal au pivot
+        }
+        else
+        {
+            ra(&(*stacks)->stack_a); // Faire pivoter A si supérieur au pivot
+        }
+    }
+}
+int choose_pivot(t_stacks *stacks)
+{
+    t_list *current = stacks->stack_a;
+    int i = 0;
+    while (i < stacks->stack_a_size / 2)
+    {
+        current = current->next;
+        i++;
+    }
+    return *(int *)current->content;
+}
+
+void quick(t_stacks **stacks, int start, int end)
+{
+	int pivot;
+	//t_list *stack_b;
+
+	pivot = choose_pivot(*stacks);
+	move_elements_by_pivot(stacks, pivot);
+
+	int left_size = (end - start + 1) / 2;
+    int right_size = (end - start + 1) - left_size;
+
+	quick(stacks, 0, left_size - 1);
+    quick(stacks, 0, right_size - 1);
+
+	 while ((*stacks)->stack_b)
+    {
+        pa(&(*stacks)->stack_a, &(*stacks)->stack_b);
+    }
+}

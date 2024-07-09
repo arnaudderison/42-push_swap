@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:28:34 by arnaud            #+#    #+#             */
-/*   Updated: 2024/07/07 17:11:37 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/09 04:23:29 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	char		**args;
 	t_stacks	*stacks;
+
 
 	if (argc < 3)
 	{
@@ -36,5 +37,18 @@ int	main(int argc, char **argv)
 	stacks->stack_a_size = ft_lstsize(stacks->stack_a);
 	stacks->stack_b = 0;
 	sort(&stacks);
+	if (ft_lstsorted(&stacks->stack_a) == 0)
+			ft_printf("OK");
+	else
+		ft_printf("KO");
+
+
+	t_list	*tmp;
+	int i = -1;
+	tmp = stacks->stack_a;
+	while(++i < stacks->stack_a_size){
+		ft_printf("nb: %d\n", *(int*) tmp->content);
+		tmp = tmp->next;
+	}
 	return (0);
 }

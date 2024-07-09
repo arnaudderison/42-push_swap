@@ -6,30 +6,37 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:17:50 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/07 19:40:16 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/09 04:39:03 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void maps(int *tab, t_stacks **stacks)
+void maps(int *sorted_array, t_stacks **stacks)
 {
-    int i;
-    int j;
     t_list *nbrs;
-    int nbr;
+    int i;
+    int size = (*stacks)->stack_a_size;
 
-    i = -1;
-    nbrs = (*stacks)->stack_a;
-    while(++i < (*stacks)->stack_a_size)
+    for (int i = 0; i < size; i++)
     {
-        nbr = *(int*) nbrs->content;
-        j = -1;
-        while(++j < (*stacks)->stack_a_size)
+        ft_printf("%d ", sorted_array[i]);
+    }
+    ft_printf("\n");
+
+    for (i = 0; i < size; i++)
+    {
+        nbrs = (*stacks)->stack_a;
+        while (nbrs != NULL)
         {
-            if(tab[j] == nbr)
-                *(int*) nbrs->content = i;
+            if (*(int *)nbrs->content == sorted_array[i])
+            {
+                ft_printf("OK : %d replace by %d", *(int *)nbrs->content, i);
+                *(int *)nbrs->content = i;
+                break;  // Sortir de la boucle dès qu'une correspondance est trouvée
+            }
+            nbrs = nbrs->next;
         }
-        nbrs = (*stacks)->stack_a->next;
     }
 }
+
