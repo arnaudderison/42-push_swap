@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 09:08:38 by arnaud            #+#    #+#             */
-/*   Updated: 2024/04/05 20:12:00 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/11 21:22:18 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	nb = 0;
 	if (!str)
-		return (0);
+		return (-1);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		++i;
 	if (str[i] == '+' || str[i] == '-')
