@@ -6,7 +6,7 @@
 #    By: aderison <aderison@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2024/07/11 18:51:03 by aderison         ###   ########.fr        #
+#    Updated: 2024/07/11 19:37:23 by aderison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,26 +38,26 @@ PUSH_SWAP_UTILS = $(addprefix utils/, )
 PUSH_SWAP_MAIN = main.c 
 
 # Push_swap sources
-PUSH_SWAP_SRCS = $(addprefix src/, $(PUSH_SWAP_MAIN) $(PUSH_SWAP_UTILS) \
-$(PUSH_SWAP_SORT) $(PUSH_SWAP_OPE))
+PUSH_SWAP_SRCS = $(addprefix src/, $(PUSH_SWAP_UTILS) \
+$(PUSH_SWAP_SORT) $(PUSH_SWAP_OPE) $(PUSH_SWAP_MAIN))
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:%c=obj/%o)
 
 # Compilation rules
 all: $(NAME)
 
 $(NAME): $(PUSH_SWAP_OBJS)
+	@mkdir -p $(dir $@)
 	@cd ./lib/libft && make
 	@cp ./lib/libft/libft.a ./libft.a
-	@$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) $^ libft.a -o $@
 	@echo "${YELLOW}Executable $(PUSH_SWAP) created.${NC}"
 
 obj/%.o: %.c
 	@mkdir -p $(dir $@)
 	@cd ./lib/libft && make
 	@cp ./lib/libft/libft.a ./libft.a
-	@echo -n "\r${CYAN}Compiling $<...${NC}"
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
+	@echo "\r${CYAN}Compiling $<...${NC}"
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< libft.a -o $@
 clean:
 	@rm -rf obj
 	@echo "${GREEN}Object files cleaned.${NC}"
