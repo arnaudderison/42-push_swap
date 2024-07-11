@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:20:30 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/11 21:08:29 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/11 21:35:36 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ typedef struct s_pushswap
 
 void		free_data(t_ps *data);
 void		error(t_ps *data);
+int			error_syntax(char *av);
+void		check_dup(t_ps *data, int *nbr, int size);
 
 #endif
