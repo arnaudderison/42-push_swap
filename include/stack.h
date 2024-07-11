@@ -1,39 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 18:51:37 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/11 20:45:04 by aderison         ###   ########.fr       */
+/*   Created: 2024/07/11 20:20:30 by aderison          #+#    #+#             */
+/*   Updated: 2024/07/11 20:58:36 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef STACK_H
+# define STACK_H
 
-# include "libft.h"
+# include "push_swap.h"
 
-typedef enum location
+typedef enum e_operation
 {
-	TOP_A,
-	BOTTOM_A,
-	TOP_B,
-	BOTTOM_B
-}				t_location;
+	null_op,
+	pa,
+	pb,
+	ra,
+	rb,
+	rr,
+	rra,
+	rrb,
+	rrr,
+	sa,
+	sb,
+	ss
+}			t_ope;
 
-typedef struct s_info
+typedef struct s_stack
 {
-	t_location	loc;
-	int			size;
-}				t_info;
+	int		*stack;
+	int		size;
+}			t_stack;
 
-typedef struct s_dest
+typedef struct s_pushswap
 {
-	t_info		min;
-	t_info		mid;
-	t_info		max;
-}				t_dest;
+	t_stack	a;
+	t_stack	b;
+	t_list	*operations;
+}			t_ps;
+
+void		free_data(t_ps *data);
 
 #endif
