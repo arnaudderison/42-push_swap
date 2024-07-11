@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:20:30 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/11 21:35:36 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/11 21:51:15 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,8 @@ void		free_data(t_ps *data);
 void		error(t_ps *data);
 int			error_syntax(char *av);
 void		check_dup(t_ps *data, int *nbr, int size);
+void		init_data(t_ps *data, int argc, char **argv);
+void		init_stack(t_ps *data, t_stack *stk, int size);
+void		fill_stack(t_ps *data, t_stack *stk, char **argv);
 
 #endif
