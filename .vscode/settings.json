@@ -21,6 +21,7 @@
         "utility": "c",
         "vector": "c",
         "algorithm": "c",
-        "ios": "c"
+        "ios": "c",
+        "stack": "c"
     }
 }
