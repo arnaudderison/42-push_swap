@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 08:28:24 by arnaud            #+#    #+#             */
-/*   Updated: 2024/05/10 16:17:12 by aderison         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:55:01 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,25 @@ static int	is_flag(const char c)
 	return (0);
 }
 
-static int	proc_command(va_list *args, char flag, int *len)
+static int	proc_command(va_list args, char flag, int *len)
 {
 	int	tmp;
 
 	tmp = 0;
 	if (flag == 'c')
-		tmp = ft_putchar_fd(va_arg(*args, int), 1);
+		tmp = ft_putchar_fd(va_arg(args, int), 1);
 	else if (flag == 's')
-		tmp = ft_putstr_fd(va_arg(*args, char *), 1);
+		tmp = ft_putstr_fd(va_arg(args, char *), 1);
 	else if (flag == 'p')
-		tmp = ft_pointer(va_arg(*args, size_t));
+		tmp = ft_pointer(va_arg(args, size_t));
 	else if (flag == 'd' || flag == 'i')
-		tmp = ft_putnbr_fd(va_arg(*args, int), 1);
+		tmp = ft_putnbr_fd(va_arg(args, int), 1);
 	else if (flag == 'u')
-		tmp = ft_u_putnbr_fd(va_arg(*args, unsigned int), 1);
+		tmp = ft_u_putnbr_fd(va_arg(args, unsigned int), 1);
 	else if (flag == 'x')
-		tmp = ft_puthex_fd(va_arg(*args, int), 0, 1);
+		tmp = ft_puthex_fd(va_arg(args, int), 0, 1);
 	else if (flag == 'X')
-		tmp = ft_puthex_fd(va_arg(*args, int), 1, 1);
+		tmp = ft_puthex_fd(va_arg(args, int), 1, 1);
 	else if (flag == '%')
 		tmp = ft_putchar_fd('%', 1);
 	if (tmp < 0)
@@ -48,7 +48,7 @@ static int	proc_command(va_list *args, char flag, int *len)
 	return (*len);
 }
 
-static int	parse_strs(const char *strs, va_list *args, int *len_ptr)
+static int	parse_strs(const char *strs, va_list args, int *len_ptr)
 {
 	int	i;
 	int	len;
@@ -82,7 +82,7 @@ int	ft_printf(const char *strs, ...)
 
 	len = 0;
 	va_start(args, strs);
-	if (parse_strs(strs, &args, &len) < 0)
+	if (parse_strs(strs, args, &len) < 0)
 	{
 		va_end(args);
 		return (-1);
