@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:20:30 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/11 20:58:36 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/11 21:08:29 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct s_stack
 {
 	int		*stack;
 	int		size;
+	int		top;
+	int		bottom;
 }			t_stack;
 
 typedef struct s_pushswap
@@ -45,5 +47,6 @@ typedef struct s_pushswap
 }			t_ps;
 
 void		free_data(t_ps *data);
+void		error(t_ps *data);
 
 #endif
