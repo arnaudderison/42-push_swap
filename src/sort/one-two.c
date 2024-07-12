@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   one-two.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 00:36:47 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 03:55:56 by aderison         ###   ########.fr       */
+/*   Created: 2024/07/12 03:19:12 by aderison          #+#    #+#             */
+/*   Updated: 2024/07/12 04:04:34 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include "stack.h"
 
-static void	push(t_stack *src, t_stack *dest)
+void	basecase_two(t_ps *data, t_info *to_sort)
 {
-	int	new;
-
-	if (stack_full(dest))
-		return ;
-	new = next_up(dest, dest->top);
-	dest->stack[new] = src->stack[src->top];
-	dest->top = new;
-	src->top = next_down(src, src->top);
-}
-void	push_a(t_ps *data)
-{
-	push(&data->b, &data->a);
-	if (data->writing)
-		save_op(data, pa);
+	if (to_sort->loc != TOP_A)
+	{
+		while (to_sort->size--)
+			move_from_to(data, to_sort->loc, TOP_A);
+	}
+	if (value(&data->a, 1) > value(&data->a, 2))
+		swap_a(data);
+	to_sort->size -= 2;
 }
 
-void	push_b(t_ps *data)
+void	basecase_one(t_ps *data, t_info *to_sort)
 {
-	push(&data->a, &data->b);
-	if (data->writing)
-		save_op(data, pb);
+	if (to_sort->loc != TOP_A)
+		move_from_to(data, to_sort->loc, TOP_A);
+	to_sort->size -= 1;
 }

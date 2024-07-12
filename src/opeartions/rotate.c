@@ -6,13 +6,13 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 01:27:45 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 01:30:49 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 03:54:47 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-void	rotate(t_stack *stk)
+static void	rotate(t_stack *stk)
 {
 	if (stack_full(stk))
 	{

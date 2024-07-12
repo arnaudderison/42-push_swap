@@ -6,7 +6,7 @@
 #    By: aderison <aderison@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2024/07/11 19:37:23 by aderison         ###   ########.fr        #
+#    Updated: 2024/07/12 03:50:25 by aderison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,20 +26,23 @@ CYAN=\033[0;36m
 NC=\033[0m
 
 #push_swap operation
-PUSH_SWAP_OPE = $(addprefix operations/, )
+PUSH_SWAP_OPE = $(addprefix operations/, push.c reverse.c rotate.c swap.c)
 
 #push_swap sort
-PUSH_SWAP_SORT = $(addprefix sort/, )
+PUSH_SWAP_SORT = $(addprefix sort/, move.c one-two.c quicksort.c sort.c)
 
 #push_swap utils
-PUSH_SWAP_UTILS = $(addprefix utils/, )
+PUSH_SWAP_UTILS = $(addprefix utils/, operations.c quicksort.c stack.c)
+
+#push_swap stack
+PUSH_SWAP_STACK = $(addprefix stack/, stack_error.c stack_init.c)
 
 #push_swap main
 PUSH_SWAP_MAIN = main.c 
 
 # Push_swap sources
-PUSH_SWAP_SRCS = $(addprefix src/, $(PUSH_SWAP_UTILS) \
-$(PUSH_SWAP_SORT) $(PUSH_SWAP_OPE) $(PUSH_SWAP_MAIN))
+PUSH_SWAP_SRCS = $(addprefix src/, $(PUSH_SWAP_SORT) \
+$(PUSH_SWAP_UTILS) $(PUSH_SWAP_OPE) $(PUSH_SWAP_MAIN) $(PUSH_SWAP_STACK))
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:%c=obj/%o)
 
 # Compilation rules
@@ -57,7 +60,7 @@ obj/%.o: %.c
 	@cd ./lib/libft && make
 	@cp ./lib/libft/libft.a ./libft.a
 	@echo "\r${CYAN}Compiling $<...${NC}"
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< libft.a -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 clean:
 	@rm -rf obj
 	@echo "${GREEN}Object files cleaned.${NC}"

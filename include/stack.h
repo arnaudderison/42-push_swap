@@ -6,13 +6,14 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:20:30 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 00:57:04 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 03:58:48 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
 
+# include "libft.h"
 # include "push_swap.h"
 
 typedef enum e_operation
@@ -63,5 +64,18 @@ int			stack_full(t_stack *stk);
 int			next_down(t_stack *stk, int pos);
 int			next_up(t_stack *stk, int pos);
 int			value(t_stack *stk, int pos);
+void		rotate_a(t_ps *data);
+void		rotate_b(t_ps *data);
+void		rotate_ab(t_ps *data);
+void		push_a(t_ps *data);
+void		push_b(t_ps *data);
+void		reverse_a(t_ps *data);
+void		reverse_b(t_ps *data);
+void		reverse_ab(t_ps *data);
+void		swap_a(t_ps *data);
+void		swap_b(t_ps *data);
+void		swap_ab(t_ps *data);
+void		basecase_two(t_ps *data, t_info *to_sort);
+void		basecase_one(t_ps *data, t_info *to_sort);
 
 #endif

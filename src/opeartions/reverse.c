@@ -6,13 +6,13 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 01:06:19 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 01:28:02 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 03:56:05 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-void	reverse(t_stack *stk)
+static void	reverse(t_stack *stk)
 {
 	if (stack_full(stk))
 	{

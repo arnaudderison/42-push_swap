@@ -6,13 +6,13 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 01:28:53 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 01:28:57 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 03:57:28 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-void	swap(t_stack *stk)
+static void	swap(t_stack *stk)
 {
 	int	tmp;
 

@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 18:18:56 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/11 21:56:31 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 03:25:03 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 		ft_free_matrice(1, &argv);
 	if (argc < 3)
 		return (free_data(&data), 0);
-	ft_printf("trop cool");
+	sort(&data);
+	print_op(data.operations);
 	return (1);
 }
