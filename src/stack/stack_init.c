@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:46:45 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/11 21:51:27 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 00:58:38 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init_data(t_ps *data, int argc, char **argv)
 	init_stack(data, &data->a, argc);
 	init_stack(data, &data->b, argc);
 	fill_stack(data, &data->a, argv);
+	data->writing = 1;
 	data->operations = NULL;
 }
 
