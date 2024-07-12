@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 01:06:19 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 03:56:05 by aderison         ###   ########.fr       */
+/*   Created: 2024/07/12 01:27:45 by aderison          #+#    #+#             */
+/*   Updated: 2024/07/12 04:21:16 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-static void	reverse(t_stack *stk)
+static void	rotate(t_stack *stk)
 {
 	if (stack_full(stk))
 	{
-		stk->top = stk->bottom;
-		stk->bottom = next_up(stk, stk->bottom);
+		stk->bottom = stk->top;
+		stk->top = next_down(stk, stk->top);
 	}
 	else
 	{
-		stk->top = next_up(stk, stk->top);
-		stk->stack[stk->top] = stk->stack[stk->bottom];
-		stk->stack[stk->bottom] = 0;
-		stk->bottom = next_up(stk, stk->bottom);
+		stk->bottom = next_down(stk, stk->bottom);
+		stk->stack[stk->bottom] = stk->stack[stk->top];
+		stk->stack[stk->top] = 0;
+		stk->top = next_down(stk, stk->top);
 	}
 }
 
-void	reverse_a(t_ps *data)
+void	rotate_a(t_ps *data)
 {
-	reverse(&data->a);
+	rotate(&data->a);
 	if (data->writing)
-		save_op(data, rra);
+		add_ope(data, ra);
 }
 
-void	reverse_b(t_ps *data)
+void	rotate_b(t_ps *data)
 {
-	reverse(&data->b);
+	rotate(&data->b);
 	if (data->writing)
-		save_op(data, rrb);
+		add_ope(data, rb);
 }
 
-void	reverse_ab(t_ps *data)
+void	rotate_ab(t_ps *data)
 {
-	reverse(&data->a);
-	reverse(&data->b);
+	rotate(&data->a);
+	rotate(&data->b);
 	if (data->writing)
-		save_op(data, rrr);
+		add_ope(data, rr);
 }

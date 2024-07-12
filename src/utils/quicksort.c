@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 03:07:28 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 03:53:58 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 04:05:52 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ int	find_value(t_ps *data, t_info *terc, int pos)
 
 int	find_max_value(t_ps *data, t_info *terc)
 {
-	t_stack *stk;
-	t_location loc;
-	int max;
-	int size;
-	int i;
+	t_stack		*stk;
+	t_location	loc;
+	int			max;
+	int			size;
+	int			i;
 
 	stk = loc_to_stack(data, terc->loc);
 	loc = terc->loc;

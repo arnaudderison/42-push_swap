@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 00:36:47 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 03:55:56 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 04:21:01 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	push_a(t_ps *data)
 {
 	push(&data->b, &data->a);
 	if (data->writing)
-		save_op(data, pa);
+		add_ope(data, pa);
 }
 
 void	push_b(t_ps *data)
 {
 	push(&data->a, &data->b);
 	if (data->writing)
-		save_op(data, pb);
+		add_ope(data, pb);
 }

@@ -6,11 +6,29 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:46:45 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 00:58:38 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 04:22:17 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
+
+static void	nbr_to_rank(int *nbr, int *rank, int size)
+{
+	int	i;
+	int	j;
+	int	count_rank;
+
+	i = -1;
+	while (++i < size)
+	{
+		j = -1;
+		count_rank = 0;
+		while (++j < size)
+			if (nbr[j] <= nbr[i])
+				++count_rank;
+		rank[i] = count_rank;
+	}
+}
 
 void	init_data(t_ps *data, int argc, char **argv)
 {
@@ -53,21 +71,4 @@ void	fill_stack(t_ps *data, t_stack *stk, char **argv)
 	nbr_to_rank(nbr, stk->stack, stk->size);
 	stk->bottom = stk->size - 1;
 	ft_free(1, &nbr);
-}
-static void	nbr_to_rank(int *nbr, int *rank, int size)
-{
-	int	i;
-	int	j;
-	int	count_rank;
-
-	i = -1;
-	while (++i < size)
-	{
-		j = -1;
-		count_rank = 0;
-		while (++j < size)
-			if (nbr[j] <= nbr[i])
-				++count_rank;
-		rank[i] = count_rank;
-	}
 }

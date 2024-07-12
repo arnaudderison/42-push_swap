@@ -6,25 +6,36 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 03:23:11 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 03:59:38 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 04:14:19 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort(t_ps *data)
+int	data_sorted(t_ps *data)
 {
-	t_stack	stk;
-	int		size;
+	int	i;
+	int	rank;
 
-	stk = data->a;
-	size = data->a.size;
-	if (size <= 1 || data_sorted(data))
-		return ;
-	if (size == 3)
-		sort_three(data, 3);
-	else
-		sort_all(data);
+	i = data->a.top;
+	rank = 1;
+	while (rank <= data->a.size)
+	{
+		if (data->a.stack[i] != rank)
+			return (0);
+		++rank;
+		i = next_down(&data->a, i);
+	}
+	return (1);
+}
+
+static void	sort_all(t_ps *data)
+{
+	t_info	all_data;
+
+	all_data.loc = TOP_A;
+	all_data.size = data->a.size;
+	quicksort(data, &all_data);
 }
 
 static void	sort_three(t_ps *data, int max)
@@ -45,11 +56,17 @@ static void	sort_three(t_ps *data, int max)
 		swap_a(data);
 }
 
-static void	sort_all(t_ps *data)
+void	sort(t_ps *data)
 {
-	t_info all_data;
+	t_stack	stk;
+	int		size;
 
-	all_data.loc = TOP_A;
-	all_data.size = data->a.size;
-	quicksort(data, &all_data);
+	stk = data->a;
+	size = data->a.size;
+	if (size <= 1 || data_sorted(data))
+		return ;
+	if (size == 3)
+		sort_three(data, 3);
+	else
+		sort_all(data);
 }

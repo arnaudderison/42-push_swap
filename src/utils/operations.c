@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 00:23:01 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 03:47:13 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 04:15:19 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_ope(t_list *head)
 	reader = head;
 	while (reader)
 	{
-		ft_printf('%s\n', op_to_str(op_from(reader)));
+		ft_printf("%s\n", op_to_str(op_from(reader)));
 		reader = reader->next;
 	}
 }

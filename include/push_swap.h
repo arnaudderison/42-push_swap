@@ -6,14 +6,13 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 18:51:37 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 03:53:52 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 04:14:30 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft.h"
 # include "stack.h"
 
 typedef enum location
@@ -60,5 +59,8 @@ void			move_src_bottom(t_ps *data, t_location src, t_location dst);
 void			move_src_top(t_ps *data, t_location src, t_location dst);
 void			move_top_a(t_ps *data, t_location dst);
 void			move_top_b(t_ps *data, t_location dst);
+void			basecase_two(t_ps *data, t_info *to_sort);
+void			basecase_one(t_ps *data, t_info *to_sort);
+int				data_sorted(t_ps *data);
 
 #endif

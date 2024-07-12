@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:20:30 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 03:58:48 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 04:18:57 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define STACK_H
 
 # include "libft.h"
-# include "push_swap.h"
 
 typedef enum e_operation
 {
@@ -75,7 +74,5 @@ void		reverse_ab(t_ps *data);
 void		swap_a(t_ps *data);
 void		swap_b(t_ps *data);
 void		swap_ab(t_ps *data);
-void		basecase_two(t_ps *data, t_info *to_sort);
-void		basecase_one(t_ps *data, t_info *to_sort);
 
 #endif
