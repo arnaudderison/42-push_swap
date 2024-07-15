@@ -6,11 +6,13 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 09:08:38 by arnaud            #+#    #+#             */
-/*   Updated: 2024/07/11 21:22:18 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 05:51:38 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	overflow(long sign)
+#include "../../include/libft.h"
+
+static int	overflow(unsigned int sign)
 {
 	if (sign > 0)
 		return (-1);
@@ -19,10 +21,10 @@ static int	overflow(long sign)
 
 int	ft_atoi(const char *str)
 {
-	int		i;
-	long	sign;
-	long	nb;
-	long	temp;
+	int				i;
+	int				sign;
+	unsigned int	nb;
+	unsigned int	temp;
 
 	i = 0;
 	sign = 1;
@@ -39,7 +41,7 @@ int	ft_atoi(const char *str)
 		temp = nb;
 		nb = nb * 10 + str[i++] - '0';
 		if (temp > nb)
-			return (overflow(sign));
+			return (overflow(temp));
 	}
 	nb = nb * sign;
 	return ((int)nb);
