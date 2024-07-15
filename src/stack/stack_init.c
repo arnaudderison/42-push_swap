@@ -6,13 +6,13 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:46:45 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/15 15:05:02 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/15 20:56:36 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-static void	nbr_to_rank(int *nbr, int *rank, int size)
+void	nbr_to_rank(int *nbr, int *rank, int size)
 {
 	int	i;
 	int	j;

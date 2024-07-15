@@ -6,7 +6,7 @@
 #    By: aderison <aderison@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2024/07/11 18:17:18 by aderison         ###   ########.fr        #
+#    Updated: 2024/07/15 20:05:30 by aderison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,12 @@ ft_lstdelone_bonus.c ft_lstlast_bonus.c ft_lstnew_bonus.c)
 #Libft ft_printf
 LIBFT_PRINTF = ft_printf/ft_printf.c
 
+#libft gnl
+LIBFT_GNL = gnl/get_next_line.c
+
 # Libft sources
 LIBFT_SRCS = $(addprefix src/, $(LIBFT_STRING) $(LIBFT_NUM) $(LIBFT_MEM) \
-$(LIBFT_LST) $(LIBFT_PRINTF))
+$(LIBFT_LST) $(LIBFT_PRINTF) $(LIBFT_GNL))
 LIBFT_OBJS = $(LIBFT_SRCS:%c=obj/%o)
 
 # Compilation rules

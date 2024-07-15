@@ -6,7 +6,7 @@
 #    By: aderison <aderison@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2024/07/12 04:17:35 by aderison         ###   ########.fr        #
+#    Updated: 2024/07/15 20:42:50 by aderison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,13 @@ PUSH_SWAP_SRCS = $(addprefix src/, $(PUSH_SWAP_SORT) \
 $(PUSH_SWAP_UTILS) $(PUSH_SWAP_OPE) $(PUSH_SWAP_MAIN) $(PUSH_SWAP_STACK))
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:%c=obj/%o)
 
+#checker
+CHECKER_F = $(addprefix src/, $(PUSH_SWAP_SORT) \
+$(PUSH_SWAP_UTILS) $(PUSH_SWAP_OPE) $(PUSH_SWAP_STACK))
+CHECKER = $(addprefix src/bonus/, checker.c utils.c)
+CHECKER_SRCS = $(CHECKER_F) $(CHECKER)
+CHECKER_OBJS = $(CHECKER_SRCS:%c=obj/%o)
+
 # Compilation rules
 all: $(NAME)
 
@@ -54,6 +61,13 @@ $(NAME): $(PUSH_SWAP_OBJS)
 	@cp ./lib/libft/libft.a ./libft.a
 	@$(CC) $(CFLAGS) $(INCLUDES) $^ libft.a -o $@
 	@echo "${YELLOW}Executable $(PUSH_SWAP) created.${NC}"
+
+checker: $(CHECKER_OBJS)
+	@mkdir -p $(dir $@)
+	@cd ./lib/libft && make
+	@cp ./lib/libft/libft.a ./libft.a
+	$(CC) $(CFLAGS) $(INCLUDES) $^ libft.a -o $@
+	@echo "${YELLOW}Executable $(checker) created.${NC}"
 
 obj/%.o: %.c
 	@mkdir -p $(dir $@)

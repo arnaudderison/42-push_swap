@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:55:10 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/15 15:07:23 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/15 21:09:15 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	check_dup(t_ps *data, int *nbr, int size)
 				ft_free(1, &nbr);
 				error(data);
 			}
-			++j;
 		}
 	}
 }

@@ -6,16 +6,19 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:41:28 by arnaud            #+#    #+#             */
-/*   Updated: 2024/05/09 17:56:34 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/15 19:09:57 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define BUFFER_SIZE 5
 
 typedef struct s_list
 {
@@ -79,5 +82,6 @@ void				ft_free(unsigned int count, ...);
 int					ft_puthex_fd(int nb, int isMaj, int fd);
 int					ft_u_putnbr_fd(unsigned int nb, int fd);
 int					ft_pointer(size_t addr);
+char				*get_next_line(int fd);
 
 #endif

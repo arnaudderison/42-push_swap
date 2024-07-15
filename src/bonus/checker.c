@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 18:18:56 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/15 20:18:23 by aderison         ###   ########.fr       */
+/*   Created: 2024/07/15 18:50:46 by aderison          #+#    #+#             */
+/*   Updated: 2024/07/15 21:14:20 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "checker.h"
 #include "push_swap.h"
-#include "stack.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+static void read_ope(t_ps *data)
 {
-	t_ps	data;
-	int		is_split;
+    char *line;
+    enum e_operation ope;
 
-	if (argc <= 1 || !argv || !*argv)
-		return (ft_putendl_fd("Error", 2), 0);
-	if (argc > 2)
+
+    line = ft_strdup("");
+    while(line)
+    {
+        line = get_next_line(0);
+        ope = stringToOp(line);
+        call_op(data, ope);
+    }
+}
+
+int main(int argc, char **argv)
+{   
+    t_ps data;
+    int		is_split;
+
+     if (argc < 2)
+		return (EXIT_SUCCESS);
+    if (argc > 2)
 		++argv;
 	is_split = 0;
 	if (argc == 2)
@@ -32,12 +48,11 @@ int	main(int argc, char **argv)
 		++argc;
 		++is_split;
 	}
-	init_data(&data, argc, argv);
-	if (is_split > 0)
-		ft_free_matrice(1, &argv);
-	if (argc < 3)
-		return (free_data(&data), 0);
-	sort(&data);
-	print_ope(data.operations);
-	return (free_data(&data), exit(EXIT_SUCCESS), 0);
+    init_data(&data, argc, argv);
+    read_ope(&data);
+    if(data_sorted(&data))
+        ft_printf("OK");
+    else
+        ft_printf("KO");
+    return (EXIT_SUCCESS);
 }
