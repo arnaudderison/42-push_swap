@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 18:18:56 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 04:21:47 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/12 05:24:57 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ int	main(int argc, char **argv)
 	t_ps	data;
 	int		is_split;
 
-	if (argc <= 1 || (argc == 2 && !argv[1][0]))
-		return (0);
+	if (argc <= 1 || !argv || !*argv)
+		return (ft_putendl_fd("Error", 2), 0);
 	if (argc > 2)
 		++argv;
 	is_split = 0;
 	if (argc == 2)
 	{
-		argv = ft_split(argv[0], ' ');
-		argv = 0;
+		argv = ft_split(argv[1], ' ');
+		argc = 0;
 		while (argv[argc])
 			++argc;
 		++argc;
-		is_split = 0;
+		++is_split;
 	}
 	init_data(&data, argc, argv);
 	if (is_split > 0)
@@ -39,5 +39,5 @@ int	main(int argc, char **argv)
 		return (free_data(&data), 0);
 	sort(&data);
 	print_ope(data.operations);
-	return (1);
+	return (free_data(&data), exit(EXIT_SUCCESS), 0);
 }
