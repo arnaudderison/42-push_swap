@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:46:45 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 04:22:17 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:05:02 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	init_data(t_ps *data, int argc, char **argv)
 	init_stack(data, &data->a, argc);
 	init_stack(data, &data->b, argc);
 	fill_stack(data, &data->a, argv);
-	data->writing = 1;
 	data->operations = NULL;
 }
 
@@ -59,12 +58,14 @@ void	fill_stack(t_ps *data, t_stack *stk, char **argv)
 	if (!nbr)
 		error(data);
 	i = -1;
+	if (!argv[i + 1])
+		error(data);
 	while (argv[++i])
 	{
 		if (error_syntax(argv[i]))
 			error(data);
 		nbr[i] = ft_atoi(argv[i]);
-		if (nbr[i] == -1 && ft_strlen(argv[i]) >= 2)
+		if ((nbr[i] == -1 || nbr[i] == 0) && ft_strlen(argv[i]) > 2)
 			error(data);
 	}
 	check_dup(data, nbr, stk->size);

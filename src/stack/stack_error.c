@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:55:10 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/11 21:34:46 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:07:23 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	free_data(t_ps *data)
 	if (data->a.stack)
 		ft_free(1, &(data->a.stack));
 	if (data->b.stack)
-		free(&(data->b.stack));
+		ft_free(1, &(data->b.stack));
 	if (data->operations)
 		ft_lstclear(&data->operations, NULL);
 }
@@ -42,12 +42,12 @@ void	check_dup(t_ps *data, int *nbr, int size)
 	i = -1;
 	while (++i < size)
 	{
-		j = i;
+		j = i - 1;
 		while (++j < size)
 		{
 			if (nbr[i] == nbr[j])
 			{
-				free(nbr);
+				ft_free(1, &nbr);
 				error(data);
 			}
 			++j;
@@ -57,7 +57,8 @@ void	check_dup(t_ps *data, int *nbr, int size)
 
 void	error(t_ps *data)
 {
-	free_data(data);
+	if (data)
+		free_data(data);
 	ft_putendl_fd("Error", 2);
 	exit(EXIT_FAILURE);
 }

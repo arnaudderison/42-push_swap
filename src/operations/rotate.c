@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 01:27:45 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 04:21:16 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:57:19 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,18 @@ static void	rotate(t_stack *stk)
 void	rotate_a(t_ps *data)
 {
 	rotate(&data->a);
-	if (data->writing)
-		add_ope(data, ra);
+	add_ope(data, ra);
 }
 
 void	rotate_b(t_ps *data)
 {
 	rotate(&data->b);
-	if (data->writing)
-		add_ope(data, rb);
+	add_ope(data, rb);
 }
 
 void	rotate_ab(t_ps *data)
 {
 	rotate(&data->a);
 	rotate(&data->b);
-	if (data->writing)
-		add_ope(data, rr);
+	add_ope(data, rr);
 }

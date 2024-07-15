@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 01:06:19 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 04:21:10 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:56:40 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,18 @@ static void	reverse(t_stack *stk)
 void	reverse_a(t_ps *data)
 {
 	reverse(&data->a);
-	if (data->writing)
-		add_ope(data, rra);
+	add_ope(data, rra);
 }
 
 void	reverse_b(t_ps *data)
 {
 	reverse(&data->b);
-	if (data->writing)
-		add_ope(data, rrb);
+	add_ope(data, rrb);
 }
 
 void	reverse_ab(t_ps *data)
 {
 	reverse(&data->a);
 	reverse(&data->b);
-	if (data->writing)
-		add_ope(data, rrr);
+	add_ope(data, rrr);
 }

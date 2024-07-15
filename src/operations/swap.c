@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 01:28:53 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 04:21:21 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:57:34 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,18 @@ static void	swap(t_stack *stk)
 void	swap_a(t_ps *data)
 {
 	swap(&data->a);
-	if (data->writing)
-		add_ope(data, sa);
+	add_ope(data, sa);
 }
 
 void	swap_b(t_ps *data)
 {
 	swap(&data->b);
-	if (data->writing)
-		add_ope(data, sb);
+	add_ope(data, sb);
 }
 
 void	swap_ab(t_ps *data)
 {
 	swap(&data->a);
 	swap(&data->b);
-	if (data->writing)
-		add_ope(data, ss);
+	add_ope(data, ss);
 }
