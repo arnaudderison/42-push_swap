@@ -6,7 +6,7 @@
 #    By: aderison <aderison@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2024/07/15 20:42:50 by aderison         ###   ########.fr        #
+#    Updated: 2024/07/16 16:55:27 by aderison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,19 +62,20 @@ $(NAME): $(PUSH_SWAP_OBJS)
 	@$(CC) $(CFLAGS) $(INCLUDES) $^ libft.a -o $@
 	@echo "${YELLOW}Executable $(PUSH_SWAP) created.${NC}"
 
-checker: $(CHECKER_OBJS)
+bonus: $(CHECKER_OBJS)
 	@mkdir -p $(dir $@)
 	@cd ./lib/libft && make
 	@cp ./lib/libft/libft.a ./libft.a
-	$(CC) $(CFLAGS) $(INCLUDES) $^ libft.a -o $@
-	@echo "${YELLOW}Executable $(checker) created.${NC}"
+	@$(CC) $(CFLAGS) $(INCLUDES) $^ libft.a -o checker
+	@echo "${YELLOW}Executable checker created.${NC}"
 
 obj/%.o: %.c
 	@mkdir -p $(dir $@)
 	@cd ./lib/libft && make
 	@cp ./lib/libft/libft.a ./libft.a
 	@echo "\r${CYAN}Compiling $<...${NC}"
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	
 clean:
 	@rm -rf obj
 	@echo "${GREEN}Object files cleaned.${NC}"
@@ -87,8 +88,9 @@ clean-libft:
 fclean: clean clean-libft
 	@rm -f libft.a
 	@rm -f $(NAME)
+	@rm -f checker
 	@echo "${RED}All files removed.${NC}"
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re clean-libft bonus

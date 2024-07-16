@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:55:10 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/15 21:09:15 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:24:18 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	check_dup(t_ps *data, int *nbr, int size)
 	i = -1;
 	while (++i < size)
 	{
-		j = i - 1;
+		j = i;
 		while (++j < size)
 		{
 			if (nbr[i] == nbr[j])

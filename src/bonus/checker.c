@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 18:50:46 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/16 16:14:50 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:29:11 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	read_ope(t_ps *data)
 	while (line)
 	{
 		line = get_next_line(0);
-		ope = stringToOp(line);
+		ope = string_to_op(line);
 		call_op(data, ope);
 	}
 }
