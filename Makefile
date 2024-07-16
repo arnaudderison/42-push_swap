@@ -6,7 +6,7 @@
 #    By: aderison <aderison@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 12:25:14 by arnaud            #+#    #+#              #
-#    Updated: 2024/07/16 16:55:27 by aderison         ###   ########.fr        #
+#    Updated: 2024/07/16 17:04:34 by aderison         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,14 +43,14 @@ PUSH_SWAP_MAIN = main.c
 # Push_swap sources
 PUSH_SWAP_SRCS = $(addprefix src/, $(PUSH_SWAP_SORT) \
 $(PUSH_SWAP_UTILS) $(PUSH_SWAP_OPE) $(PUSH_SWAP_MAIN) $(PUSH_SWAP_STACK))
-PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:%c=obj/%o)
+PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:src/%.c=obj/%.o)
 
 #checker
 CHECKER_F = $(addprefix src/, $(PUSH_SWAP_SORT) \
 $(PUSH_SWAP_UTILS) $(PUSH_SWAP_OPE) $(PUSH_SWAP_STACK))
 CHECKER = $(addprefix src/bonus/, checker.c utils.c)
 CHECKER_SRCS = $(CHECKER_F) $(CHECKER)
-CHECKER_OBJS = $(CHECKER_SRCS:%c=obj/%o)
+CHECKER_OBJS = $(CHECKER_SRCS:src/%.c=obj/%.o)
 
 # Compilation rules
 all: $(NAME)
@@ -60,7 +60,7 @@ $(NAME): $(PUSH_SWAP_OBJS)
 	@cd ./lib/libft && make
 	@cp ./lib/libft/libft.a ./libft.a
 	@$(CC) $(CFLAGS) $(INCLUDES) $^ libft.a -o $@
-	@echo "${YELLOW}Executable $(PUSH_SWAP) created.${NC}"
+	@echo "${YELLOW}Executable $(NAME) created.${NC}"
 
 bonus: $(CHECKER_OBJS)
 	@mkdir -p $(dir $@)
@@ -69,15 +69,13 @@ bonus: $(CHECKER_OBJS)
 	@$(CC) $(CFLAGS) $(INCLUDES) $^ libft.a -o checker
 	@echo "${YELLOW}Executable checker created.${NC}"
 
-obj/%.o: %.c
+obj/%.o: src/%.c
 	@mkdir -p $(dir $@)
-	@cd ./lib/libft && make
-	@cp ./lib/libft/libft.a ./libft.a
 	@echo "\r${CYAN}Compiling $<...${NC}"
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	
 clean:
-	@rm -rf obj
+	@rm -rf $(OBJ_DIR)
 	@echo "${GREEN}Object files cleaned.${NC}"
 
 clean-libft:
