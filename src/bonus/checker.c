@@ -6,37 +6,36 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 18:50:46 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/15 21:14:20 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:14:50 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-#include "push_swap.h"
 #include "libft.h"
+#include "push_swap.h"
 
-static void read_ope(t_ps *data)
+static void	read_ope(t_ps *data)
 {
-    char *line;
-    enum e_operation ope;
+	char				*line;
+	enum e_operation	ope;
 
-
-    line = ft_strdup("");
-    while(line)
-    {
-        line = get_next_line(0);
-        ope = stringToOp(line);
-        call_op(data, ope);
-    }
+	line = ft_strdup("");
+	while (line)
+	{
+		line = get_next_line(0);
+		ope = stringToOp(line);
+		call_op(data, ope);
+	}
 }
 
-int main(int argc, char **argv)
-{   
-    t_ps data;
-    int		is_split;
+int	main(int argc, char **argv)
+{
+	t_ps	data;
+	int		is_split;
 
-     if (argc < 2)
+	if (argc < 2)
 		return (EXIT_SUCCESS);
-    if (argc > 2)
+	if (argc > 2)
 		++argv;
 	is_split = 0;
 	if (argc == 2)
@@ -48,11 +47,11 @@ int main(int argc, char **argv)
 		++argc;
 		++is_split;
 	}
-    init_data(&data, argc, argv);
-    read_ope(&data);
-    if(data_sorted(&data))
-        ft_printf("OK");
-    else
-        ft_printf("KO");
-    return (EXIT_SUCCESS);
+	init_data(&data, argc, argv);
+	read_ope(&data);
+	if (data_sorted(&data))
+		ft_printf("OK");
+	else
+		ft_printf("KO");
+	return (EXIT_SUCCESS);
 }

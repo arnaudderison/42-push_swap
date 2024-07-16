@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:32:48 by arnaud            #+#    #+#             */
-/*   Updated: 2024/07/12 04:39:49 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:14:32 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	free_tab(char **tab)
 
 char	**ft_split(const char *s, char c)
 {
-	char		**result;
-	unsigned	i;
-	unsigned	strs_len;
+	char			**result;
+	unsigned int	i;
+	unsigned int	strs_len;
 
 	if (!s)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 20:20:30 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/15 20:50:54 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:11:51 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,5 @@ void		reverse_ab(t_ps *data);
 void		swap_a(t_ps *data);
 void		swap_b(t_ps *data);
 void		swap_ab(t_ps *data);
-void	nbr_to_rank(int *nbr, int *rank, int size);
-
+void		nbr_to_rank(int *nbr, int *rank, int size);
 #endif

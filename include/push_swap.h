@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 18:51:37 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/12 04:14:30 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:11:26 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,4 @@ void			move_top_b(t_ps *data, t_location dst);
 void			basecase_two(t_ps *data, t_info *to_sort);
 void			basecase_one(t_ps *data, t_info *to_sort);
 int				data_sorted(t_ps *data);
-
 #endif

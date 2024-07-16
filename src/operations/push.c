@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 00:36:47 by aderison          #+#    #+#             */
-/*   Updated: 2024/07/15 14:56:57 by aderison         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:17:30 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	push(t_stack *src, t_stack *dest)
 	dest->top = new;
 	src->top = next_down(src, src->top);
 }
+
 void	push_a(t_ps *data)
 {
 	push(&data->b, &data->a);
